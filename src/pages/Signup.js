@@ -17,7 +17,7 @@ const Signup = () => {
           {/* Register Form */}
           <div className="bg-white rounded-md shadow-md p-4">
 
-            <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+            <div class="flex flex-col items-center justify-center px-2 lg:px-6 py-8 mx-auto lg:py-0">
 
               {/* Logo */}
               <a href="/" class="flex items-center mt-6 mb-6 text-2xl font-semibold font-Inter text-gray-900 dark:text-white">
@@ -153,8 +153,8 @@ const Signup = () => {
                     </div>
 
                     {/* Create account button */}
-                    <div class="container mx-auto flex flex-col justify-center items-center gap-2 mt-4">
-                      <button className="w-auto lg:w-full flex justify-center items-center bg-blue-700 rounded-lg text-base px-4 py-2 lg:px-5 lg:py-2.5 text-white font-medium font-Inter" type="submit">Signup
+                    <div class=" flex  justify-center items-center mt-4">
+                      <button className="w-[100%] lg:w-full flex justify-center items-center bg-[#A020F0] rounded-lg text-base px-4 py-2 lg:px-5 lg:py-2.5 text-white font-medium font-Inter" type="submit">Signup
                       </button>
                    
                     </div>

@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.14",
+    "express": "^4.18.2",
     "flowbite": "^1.7.0",
     "flowbite-react": "^0.4.11",
     "framer-motion": "^10.12.18",
@@ -25,8 +26,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "nodemon server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +52,10 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "tailwindcss": "^3.3.2"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

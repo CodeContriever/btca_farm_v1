@@ -10,14 +10,14 @@ const Signup = () => {
   return (
     <>
 
-      <main className="bg-gray-100 min-h-screen flex items-center justify-center p-4 md:p-8">
+      <main className="bg-gray-100 min-h-screen flex items-center justify-center p-2 lg:p-4 md:p-8">
 
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
 
-          {/* Register Form */}
+          {/* Login Form */}
           <div className="bg-white rounded-md shadow-md p-4">
 
-            <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+            <div class="flex flex-col items-center justify-center px-2 lg:px-6 py-8 mx-auto lg:py-0">
 
               {/* Logo */}
               <a href="/" class="flex items-center mt-6 mb-6 text-2xl font-semibold font-Inter text-gray-900 dark:text-white">
@@ -103,9 +103,10 @@ const Signup = () => {
                     </div>
 
                     {/* Login account button */}
-                    <div class="container mx-auto flex flex-col justify-center items-center gap-2">
-                      <button className="w-auto lg:w-full flex justify-center items-center bg-blue-700 rounded-lg text-base px-16 py-1.5 lg:px-5 lg:py-2.5 mt-4 text-white font-medium font-Inter" type="submit">Login
+                    <div class=" flex  justify-center items-center mt-8">
+                      <button className="w-[100%] lg:w-full flex justify-center items-center bg-[#A020F0] rounded-lg text-base px-4 py-2 lg:px-5 lg:py-2.5 text-white font-medium font-Inter" type="submit">Login
                       </button>
+                   
                     </div>
 
                     {/* Already have an account text */}

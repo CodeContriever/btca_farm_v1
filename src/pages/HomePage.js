@@ -1,5 +1,4 @@
 import React from "react";
-
 import Nav2 from "../components/Nav2";
 import Footer from "../components/Footer"
 
@@ -7,7 +6,7 @@ import Footer from "../components/Footer"
 
 
 
-const LandingPage = () => {
+const HomePage = () => {
 
   return (
     <div
@@ -217,5 +216,5 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage
+export default HomePage
 

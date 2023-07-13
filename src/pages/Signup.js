@@ -1,11 +1,71 @@
 import React from "react";
-
+import { useState, } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 
 
 const Signup = () => {
+  const navigate = useNavigate()
 
- 
+  const [fullname, setFullname] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [referredBy, setReferredBy] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSignup = async () => {
+    try {
+      const response = await fetch('https://btca.afribook.world/account/createUserAccount', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          fullname,
+          phoneNumber,
+          email,
+          password,
+          referredBy
+        })
+      });
+
+      console.log(response)
+
+      if (response.ok) {
+        // Handle successful signup
+        const data = await response.json();
+        console.log('User signed up successfully:', data);
+
+        // Redirect to home page
+        navigate('/home');
+
+      } else {
+        // Handle signup error
+        const errorData = await response.json();
+        console.error('Error signing up:', errorData);
+        setError(errorData.message);
+      }
+
+    } catch (error) {
+      console.error('Error signing up:', error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!fullname || !phoneNumber || !email || !password) {
+      // Display an error message or perform other error handling
+      console.error('Please fill in all the required fields');
+      return;
+    }
+
+    handleSignup();
+  };
+
+
+
 
   return (
     <>
@@ -36,7 +96,7 @@ const Signup = () => {
                   </h1>
 
                   {/* Form */}
-                  <form class="space-y-4 md:space-y-6" onSubmit={""}>
+                  <form class="space-y-4 md:space-y-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                       {/* Name Field */}
@@ -44,16 +104,34 @@ const Signup = () => {
 
                         <label for="username" class="block mb-2 text-sm font-medium font-Inter text-gray-900 dark:text-white"
                         >
-                          Username
-                          </label>
+                          Fullname
+                        </label>
                         <input
                           type="text"
                           name="username"
                           id="username"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-Inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonniee#123"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-Inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Boniee Ben"
                           required=""
-                          value={""}
-                          onChange={""}
+                          value={fullname}
+                          onChange={(e) => setFullname(e.target.value)}
+                        />
+                      </div>
+
+                      {/*  Phonenumber Field */}
+                      <div>
+
+                        <label for="phonenumber" class="block mb-2 text-sm font-medium font-Inter text-gray-900 dark:text-white"
+                        >
+                         Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          name="phoneNumber"
+                          id="phonenumber"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-Inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+234"
+                          required=""
+                          value={phoneNumber}
+                          onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                       </div>
 
@@ -73,9 +151,9 @@ const Signup = () => {
                           id="email"
                           class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com"
                           required=""
-                          value={""}
-                          onChange={""} 
-                          />
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
 
                       </div>
 
@@ -95,8 +173,8 @@ const Signup = () => {
                           id="password"
                           placeholder="••••••••"
                           class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-Inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""
-                          value={""}
-                          onChange={""}
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
 
@@ -106,12 +184,36 @@ const Signup = () => {
                         <label for="confirm-password" class="block mb-2 text-sm font-medium font-Inter text-gray-900 dark:text-white"
                         >
                           Confirm password
-                          </label>
+                        </label>
 
-                        <input 
-                        type="confirm-password" 
-                        name="confirm-password" id="confirm-password" placeholder="••••••••" 
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-Inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" 
+                        <input
+                          type="confirm-password"
+                          name="confirm-password" id="confirm-password" placeholder="••••••••"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-Inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+
+                      </div>
+
+                      {/* Reffered By */}
+                      <div>
+
+                        <label
+                          for="referredBy"
+                          class="block mb-2 text-sm font-medium font-Inter text-gray-900 dark:text-white"
+                        >
+                          Referred By
+                        </label>
+
+                        <input
+                          type="text"
+                          name="referredBy"
+                          id="referredBy"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-inter rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="4234769"
+                          required=""
+                          value={referredBy}
+                          onChange={(e) => setReferredBy(e.target.value)}
                         />
 
                       </div>
@@ -153,10 +255,18 @@ const Signup = () => {
                     </div>
 
                     {/* Create account button */}
-                    <div class=" flex  justify-center items-center mt-4">
-                      <button className="w-[100%] lg:w-full flex justify-center items-center bg-[#A020F0] rounded-lg text-base px-4 py-2 lg:px-5 lg:py-2.5 text-white font-medium font-Inter" type="submit">Signup
+                    <div 
+                    class=" flex  justify-center items-center mt-4"
+                    >
+                      <button
+                      type="submit"
+                      onClick={handleSubmit}
+                      className="w-[100%] lg:w-full flex justify-center items-center bg-[#A020F0] rounded-lg text-base px-4 py-2 lg:px-5 lg:py-2.5 text-white font-medium font-Inter" >
+                        Signup
                       </button>
-                   
+
+                      {error && <p className="text-sm lg:text-base text-red-700 font-medium font-Inter">{error}</p>}
+                      
                     </div>
 
                     {/* Already have an account text */}

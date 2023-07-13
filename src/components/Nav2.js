@@ -16,6 +16,15 @@ const Nav2 = () => {
     }
   };
 
+    const handleLogout = () => {
+      // Clear the user's session or authentication token
+      // Example: Remove the token from local storage
+      localStorage.removeItem('authToken');
+  
+      // Redirect the user to the sign-in page
+      window.location.href = '/signin';
+    };
+
   return (
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
 
@@ -307,7 +316,13 @@ const Nav2 = () => {
             </div>
 
             {/*signout */}
-            <a href="/signin" class="hidden lg:flex text-white bg-[#A020F0] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ml-8 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Signout</a>
+            <button
+                      type="submit"
+                      onClick={handleLogout}
+                      class="hidden lg:flex justify-center items-center text-white bg-[#A020F0] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ml-8 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                      >
+                        Signout
+                      </button>
 
           </div>
 

@@ -140,7 +140,7 @@ const Nav3 = () => {
         </div>
 
 
-        <div class="flex items-center lg:order-2">
+        <div class="flex items-center justify-center lg:order-2">
 
           {/* Toggle button for search  */}
           <button

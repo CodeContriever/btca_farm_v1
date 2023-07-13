@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, } from "react-router-dom"
+import { Routes, Route,} from "react-router-dom"
 
 import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
@@ -18,7 +18,6 @@ import Payout from "./pages/Payout";
 
 
 
-
 const App = () => {
 
 
@@ -29,7 +28,7 @@ const App = () => {
       <Route  path='/signup' element={<Signup/>} />
       <Route  path='/signin' element={<Signin/>} />
       <Route path="*" element={<NotFoundPage />} />
-      <Route path='/home' element={<HomePage />} />
+      <Route path="/home" element={<HomePage />} />
         <Route path='/activation' element={<Activation />} />
         <Route path='/support' element={<Support />} />
         <Route path='/payout' element={<Payout />} />

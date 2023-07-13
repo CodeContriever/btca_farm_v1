@@ -21,6 +21,7 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -29,7 +30,6 @@
     "dev": "nodemon server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-
   },
   "eslintConfig": {
     "extends": [

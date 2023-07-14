@@ -40,15 +40,15 @@ const Signup = () => {
         // Redirect to home page
         navigate('/home');
 
-      } else {
+      }  else {
         // Handle signup error
         const errorData = await response.json();
         console.error('Error signing up:', errorData);
-        setError(errorData.message);
+        throw new Error(errorData.message); 
       }
-
     } catch (error) {
       console.error('Error signing up:', error);
+      setError(error.message || 'An error occurred. Please try again later.');
     }
   };
 
@@ -58,6 +58,7 @@ const Signup = () => {
     if (!fullname || !phoneNumber || !email || !password) {
       // Display an error message or perform other error handling
       console.error('Please fill in all the required fields');
+      setError(error.message || 'Please fill in all the required fields');
       return;
     }
 
@@ -256,7 +257,7 @@ const Signup = () => {
 
                     {/* Create account button */}
                     <div 
-                    class=" flex  justify-center items-center mt-4"
+                    class=" flex  flex-col justify-center items-center mt-4"
                     >
                       <button
                       type="submit"
@@ -265,7 +266,7 @@ const Signup = () => {
                         Signup
                       </button>
 
-                      {error && <p className="text-sm lg:text-base text-red-700 font-medium font-Inter">{error}</p>}
+                      {error && <p className="mt-4 text-sm lg:text-base text-red-700 font-medium font-Inter">{error}</p>}
                       
                     </div>
 

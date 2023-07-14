@@ -35,16 +35,15 @@ const Signin = () => {
           // Redirect to home page
           navigate('/home');
 
-      } else {
+      }  else {
         // Handle signin error
         const errorData = await response.json();
         console.error('Error signing in:', errorData);
-        setError(errorData.message);
+        throw new Error(errorData.message); 
       }
-
     } catch (error) {
       console.error('Error signing in:', error);
-      setError('An error occurred. Please try again later.');
+      setError(error.message || 'An error occurred. Please try again later.');
     }
   };
 
@@ -54,7 +53,7 @@ const Signin = () => {
     if ( !email || !password) {
       // Display an error message or perform other error handling
       console.error('Please fill in all the required fields');
-      setError('Please fill in all the required fields correctly')
+      setError(error.message || 'Please fill in all the required fields correctly')
       return;
     }
 
@@ -156,7 +155,7 @@ const Signin = () => {
                     </div>
 
                     {/* Login account button */}
-                    <div class=" flex  justify-center items-center mt-8">
+                    <div class=" flex  flex-col justify-center items-center mt-8">
 
                       <button
                       type="submit"
@@ -165,7 +164,7 @@ const Signin = () => {
                         Login
                       </button>
                    
-                      {error && <p className="text-sm lg:text-base text-red-700 font-medium font-Inter">{error}</p>}
+                      {error && <p className="mt-4 text-sm lg:text-base text-red-700 font-medium font-Inter">{error}</p>}
 
                     </div>
 

@@ -21,9 +21,9 @@ const Nav3 = () => {
     <nav class="">
 
       {/* Nav Items */}
-      <div class="flex flex-wrap justify-between items-center gap-x-1 gap-y-4">
+      <div class="w-[100%] flex flex-wrap justify-between items-center gap-x-1 gap-y-4">
 
-        <div class="flex justify-start items-center gap-8">
+        <div class="w-[100%] flex justify-start items-center gap-8">
 
           {/* Toggle sidebar button */}
           <div>
@@ -67,24 +67,52 @@ const Nav3 = () => {
 
           <Collapse in={isOpen} animateOpacity>
               <div  class="items-center justify-start lg:hidden  flex w-auto order-1" id="mobile-menu-2">
+
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
 
-                  {/* Home */}
+                  {/* Dashboard */}
                   <li>
-                    <a href="/home" class="block py-2 pl-3 pr-4 text-white bg-[#A020F0]  rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
+                    <a href="/dashboard" class="block py-2 pl-3 pr-4 text-white bg-[#A020F0]  rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
                   </li>
 
-                  {/* About */}
+                  {/* activation*/}
                   <li>
-                    <a href="/dashboard" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Dashboard</a>
+                    <a href="/activation" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Activation</a>
                   </li>
 
+                   {/* license key*/}
+                   <li>
+                    <a href="/license" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">License key</a>
+                  </li>
+
+                   {/* Wallet*/}
+                   <li>
+                    <a href="/wallet" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Wallet</a>
+                  </li>
+
+                    {/* payout*/}
+                    <li>
+                    <a href="/payout" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Payout</a>
+                  </li>
                 
+                <hr />
+
+                 {/* home*/}
+                 <li>
+                    <a href="/home" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+                  </li>
+
+                   {/* signout*/}
+                 <li>
+                    <a href="/signout" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Signout</a>
+                  </li>
 
                 </ul>
 
               </div>
+
               </Collapse>
+
           </div>
 
           {/* Logo */}
@@ -98,68 +126,18 @@ const Nav3 = () => {
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BTCA_FARM</span>
           </a>
 
-          {/* Search box */}
-          <form action="" method="GET" class="hidden md:block md:pl-2">
-
-            <label for="topbar-search" class="sr-only">Search</label>
-
-            {/* Search icon & input */}
-            <div class="relative md:w-64 lg:w-96">
-
-              {/* Search icon */}
-              <div
-                class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
-              >
-                <svg
-                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  ></path>
-                </svg>
-              </div>
-
-              {/* search input */}
-              <input
-                type="text"
-                name="email"
-                id="topbar-search"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Search"
-              />
-
-            </div>
-
-          </form>
+         
 
         </div>
 
 
         <div class="flex items-center justify-center lg:order-2">
 
-          {/* Toggle button for search  */}
-          <button
-            type="button"
-            data-drawer-toggle="drawer-navigation"
-            aria-controls="drawer-navigation"
-            class="p-2 mr-1 text-gray-500 rounded-lg hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-          >
-            <span class="sr-only">Toggle search</span>
-            <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path clip-rule="evenodd" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path>
-            </svg>
-          </button>
-
           {/* Notifications, Apps & Profile */}
           <div className='flex flex-col lg:flex-row gap-4 justify-center items-center'>
 
             {/* <!-- Notifications --> */}
-            <div class="flex lg:flex-row gap-4">
+            <div class="flex lg:flex-row justify-center items-center gap-4">
 
               {/* Notification button */}
               <button
@@ -552,7 +530,7 @@ const Nav3 = () => {
             </div>
 
             {/* User profile menu */}
-            <div class="flex lg:flex-row gap-4">
+            <div class="flex lg:flex-row justify-center items-center gap-4">
 
               {/* User profile button */}
               <button

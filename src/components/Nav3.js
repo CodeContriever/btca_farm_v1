@@ -10,7 +10,7 @@ const Nav3 = () => {
   const [activeButton, setActiveButton] = useState(null);
   const handleButtonClick = (buttonName) => {
     if (buttonName === activeButton) {
-      setActiveButton(null); // Hide content if the same button is clicked twice
+      setActiveButton(null); 
     } else {
       setActiveButton(buttonName);
     }
@@ -23,7 +23,7 @@ const Nav3 = () => {
       {/* Nav Items */}
       <div class="flex flex-wrap justify-between items-center gap-x-1 gap-y-4">
 
-        <div class=" flex justify-start items-center gap-8">
+        <div class="flex justify-start items-center gap-8">
 
           {/* Toggle sidebar button */}
           <div>

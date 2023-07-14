@@ -21,9 +21,9 @@ const Nav3 = () => {
     <nav class="">
 
       {/* Nav Items */}
-      <div class="w-[100%] flex flex-wrap justify-between items-center gap-x-1 gap-y-4">
+      <div class="flex flex-wrap justify-between items-center gap-x-1 gap-y-4">
 
-        <div class="w-[100%] flex justify-start items-center gap-8">
+        <div class=" flex justify-start items-center gap-8">
 
           {/* Toggle sidebar button */}
           <div>

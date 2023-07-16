@@ -4,25 +4,17 @@ import Wrapper from './Wrapper';
 
 import licenses from "../constants/License"
 
-import { Box, Collapse, Flex, Spacer } from '@chakra-ui/react';
-import { Switch, } from '@chakra-ui/react';
-import { FormControl, } from '@chakra-ui/react';
+import { Box, } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
-import { ChevronUpIcon } from '@chakra-ui/icons'
-import { useDisclosure } from '@chakra-ui/react'
 
 
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
 import { Image, Text, VStack, } from '@chakra-ui/react';
+import ShareLink from './dashboard/ShareLink';
+import Dashbar from './dashboard/Dashbar';
 
 const DashboardMain = () => {
-  const { isOpen, onToggle } = useDisclosure()
 
-  const [linkGenerated, setLinkGenerated] = useState(false);
-  const handleClick = () => {
-    // Logic to generate the link
-    setLinkGenerated(true);
-  };
 
   const [activeButton, setActiveButton] = useState("myFarm");
   const handleButtonClick = (buttonName) => {
@@ -104,63 +96,7 @@ const DashboardMain = () => {
       <div
         className='w-[100%]  mb-6'
       >
-        <div
-          className=""
-        >
-          {/* Info field */}
-          <div
-            className="box-border border border-gray-300 rounded-md p-3 bg-gray-100 flex"
-          >
-
-            <div
-              className=" flex flex-wrap"
-            >
-              {' '}
-
-              <Button
-                onClick={handleClick}
-                variant='link'
-                colorScheme="#2b2d33"
-                disabled={linkGenerated}
-              >
-                Show Referral link
-              </Button>
-
-              {linkGenerated && (
-                <p
-                  className="box-border mb-0 mt-0 font-inter text-base leading-6 text-gray-700 break-all"
-                >
-                  Generated Link: <a href="/btca">example.com</a>
-                </p>
-              )
-              }
-            </div>
-
-            {/* Switcher */}
-            <div
-              className="box-border flex items-center flex-shrink-0 ml-auto mr-0"
-            >
-              <FormControl display="flex" alignItems="center">
-                <Switch id="email-alerts" />
-              </FormControl>{' '}
-            </div>
-
-          </div>
-
-          {/* terms and conditions */}
-          <div
-            className="box-border underline text-gray-500 font-inter text-xs font-normal leading-6 mt-2"
-          >
-            <a
-              href="/terms"
-              target="_blank"
-              className='box-border no-underline text-current'
-            >
-              Terms and conditions of sale and distribution
-            </a>
-          </div>
-
-        </div>
+        <ShareLink />
 
       </div>
 
@@ -169,190 +105,7 @@ const DashboardMain = () => {
         className='w-[100%] mb-6'
       >
 
-        <div
-          className=""
-        >
-
-
-          <Flex minWidth='max-content' alignItems='center' gap='2'>
-
-            <div>
-
-              <h2
-                className="box-border mb-0 mt-0 text-gray-800 font-inter text-base lg:text-xl font-medium leading-6 flex"
-              >
-                BTCA Farming Dashboard
-              </h2>
-
-            </div>
-
-            <Spacer />
-
-            <div
-              className="hidden  box-border relative cursor-pointer w-64 rounded-md border border-gray-300 px-4 py-3 transition duration-300 outline-none bg-gray-100 lg:flex items-center pr-4 focus:outline-purple"
-              tabIndex="0"
-            >
-
-              <ChevronUpIcon
-                w={8}
-                h={8}
-                className='transition-opacity duration-200 ease-in delay-0 text-gray-700'
-                onClick={onToggle}
-              />
-              {" "}
-
-              <div
-                className="box-border border-0 overflow-hidden p-0 flex-1 leading-6 truncate whitespace-nowrap"
-              >
-
-                <div
-                  className="box-border hidden"
-                />{" "}
-
-                <div
-                  className='box-border bg-white rounded-full h-8 absolute right-3 top-1/2 transform -translate-y-1/2 w-6 z-2 hidden'
-                />
-
-                <span
-                  className="box-border outline-none overflow-hidden block truncate"
-                >
-
-                  <div
-                    className="box-border gap-3 text-gray-700 font-inter text-[16px] font-medium leading-6 flex items-center flex-1"
-                  >
-
-                    <img
-                      className="border-0 box-content max-w-full align-middle h-5"
-                      alt="Farming BTCA"
-                      src='/logo.png'
-                    />
-
-                    {"Farming BTCA"}
-
-                  </div>
-
-                </span>
-
-              </div>{" "}
-
-              <Collapse in={isOpen} animateOpacity>
-                <Box
-                  className="box-border max-h-[300px]"
-                  tabIndex="-1"
-                >
-                  <ul
-                    className="box-border mb-0 mt-0 bg-white rounded-md list-none p-1 shadow-sm overflow-x-hidden pl-1 absolute top-full z-10  border border-gray-300 left-0 right-0 inline-block max-h-none"
-                  >
-                    {" "}
-                    <li
-                      className="box-border block"
-                    >
-                      <span
-                        className="box-border outline-none rounded-md font-inter text-base font-medium leading-6 items-center cursor-pointer flex min-h-12 relative whitespace-nowrap bg-gray-100 text-blue-600 py-3 px-4"
-                      >
-                        <div
-                          className="box-border gap-3 text-gray-700 font-inter text-[16px] font-medium leading-6 flex items-center flex-1"
-                        >
-                          <img
-                            className="border-0 box-content max-w-full align-middle h-5"
-                            alt="Farming BTCA"
-                            src='/logo.png'
-                          />
-
-                          {"Farming BTCA"}
-
-                          <svg
-                            className="box-border text-blue-600 ml-auto mr-0"
-                            height="20"
-                            width="20"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clipRule="evenodd"
-                              d="M20.707 6.293a1 1 0 010 1.414l-8.586 8.586a3 3 0 01-4.242 0l-3.586-3.586a1 1 0 111.414-1.414l3.586 3.586a1 1 0 001.414 0l8.586-8.586a1 1 0 011.414 0z"
-                              fillRule="evenodd"
-                              style={{ boxSizing: "border-box" }}
-                            />
-                          </svg>
-                        </div>
-                      </span>{" "}
-                    </li>
-
-                    <li
-                      className="box-border block mt-4"
-                    >
-                      <span
-                        className="box-border outline-none rounded-md text-gray-700 font-inter text-base font-medium leading-6 items-center cursor-pointer flex min-h-12 relative whitespace-nowrap py-3 px-4"
-                      >
-                        <div
-                          className="box-border gap-6 text-gray-700 font-inter text-[16px] font-medium leading-6 items-center flex flex-1"
-                        >
-                          <img
-                            className="border-0 box-content max-w-full align-middle h-5"
-                            alt="Farming PLCUX"
-                            src='/logo.png'
-                          />
-                          {"Farming PLCUX"}
-                        </div>
-                      </span>{" "}
-                    </li>
-
-                    <li
-                      className="box-border block mt-1"
-                    >
-                      <span
-                        className="box-border outline-none rounded-md text-gray-700 font-inter text-base font-medium leading-6 items-center cursor-pointer flex min-h-12 relative whitespace-nowrap bg-gray-100 py-3 px-4"
-                      >
-                        <div
-                          className="box-border gap-3 text-gray-700 font-inter text-base font-medium leading-6 flex items-center flex-1"
-                        >
-                          <img
-                            className="border-0 box-content max-w-full align-middle h-5"
-                            alt="PLCUX"
-                            src='/logo.png'
-                          />
-
-                          {"PLCUX"}
-
-                        </div>
-
-                      </span>{" "}
-
-                    </li>{" "}
-
-                    <li
-                      className="box-border hidden"
-                    >
-                      <span
-                        className="box-border outline-none rounded-md text-gray-700 font-inter text-[16px] font-medium leading-6 items-center cursor-pointer flex min-h-12 relative whitespace-nowrap py-3 px-4"
-                      >
-                        No elements found. Consider changing the search query.
-                      </span>
-                    </li>{" "}
-
-                    <li
-                      className="box-border hidden"
-                    >
-                      <span
-                        className="box-border outline-none rounded-md text-gray-700 font-inter text-[16px] font-medium leading-6 items-center cursor-pointer flex min-h-12 relative whitespace-nowrap py-3 px-4"
-                      >
-                        List is empty.
-                      </span>
-                    </li>{" "}
-
-                  </ul>
-                </Box>
-              </Collapse>
-
-
-            </div>
-
-          </Flex>
-
-
-        </div>
+        <Dashbar />
 
       </div>
 
@@ -362,7 +115,7 @@ const DashboardMain = () => {
         className='w-[100%] mb-6'
       >
 
-        {/* Myfarm, farm and frozen history */}
+        {/* Myfarm, farm and frozen history buttons */}
         <div
           className="box-border border-2 border-gray-200 bg-gray-100 flex flex-nowrap mb-6 overflow-x-auto rounded-md"
         >
@@ -401,8 +154,9 @@ const DashboardMain = () => {
 
               {/* 1 */}
               <div class="border-2 border-dashed rounded-lg border-gray-300 px-2 py-4">
+
                 <div
-                  class=" px-4 py-8 text-gray-900 bg-white border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  class=" px-4 py-8 text-gray-900 bg-gray-300 border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                 >
 
                   {/* Heading */}
@@ -450,13 +204,14 @@ const DashboardMain = () => {
                   <div className='mt-8 flex justify-center items-center w-[100%]'>
                     <button
                       type='submit'
-                      className="w-full flex justify-center items-center bg-[#A020F0]  rounded-lg text-base px-4 py-2 lg:px-5 lg:py-2.5 text-white font-medium font-Inter" >
+                      className="w-full flex justify-center items-center bg-[#A020F0]  rounded-lg text-base px-4 py-2 text-white font-medium font-Inter" >
                       Payout
                     </button>
 
                   </div>
 
                 </div>
+
               </div>
 
               {/* 2 */}
@@ -516,7 +271,7 @@ const DashboardMain = () => {
               <div class="border-2 border-dashed rounded-lg border-gray-300 px-2 py-4">
 
                 <div
-                  class=" px-4 py-16 text-gray-900 bg-white border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  class=" px-4 py-16 text-gray-900 bg-gray-300 border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                 >
 
                   {/* Heading */}
@@ -1028,53 +783,131 @@ const DashboardMain = () => {
                   class="p-4 "
                 >
                   {/* <!-- Max Load Status --> */}
-                  <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                  <Wrapper
+                    className="box-border rounded-md overflow-hidden p-6 flex flex-col justify-between relative bg-[#4B0F70] shadow-none"
+                  >
 
-                    <h3 class="mb-4 text-2xl font-semibold">Starter</h3>
-                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for your next project.</p>
+                    {/* Header: maxload status */}
+                    <Box
+                      className="box-border flex items-center justify-between mb-[24px]"
+                    >
+                      <p
+                        className="box-border mb-0 mt-0 font-inter text-base font-medium leading-5 text-white"
+                      >
+                        <span
+                          className="box-border outline-none"
+                        >
+                          MAX LOAD Status
+                        </span>
+                      </p>
+                    </Box>
 
-                    <div class="flex justify-center items-baseline my-8">
-                      <span class="mr-2 text-5xl font-extrabold text-[">$29</span>
-                      <span class="text-gray-500 dark:text-gray-400">/month</span>
+                    {/* Load status widgets cont */}
+                    <div
+                      className="box-border gap-12 grid flex-1"
+                    >
+                      {/* Total MaxLoad Card */}
+                      <Card
+                        className="box-border rounded-md overflow-hidden shadow-sm flex flex-col justify-between relative bg-opacity-12"
+                      >
+                        <CardHeader
+                          className="box-border flex items-center justify-between"
+                        >
+                          <p
+                            className="box-border mb-0 mt-0 font-inter text-base font-medium leading-6 text-black opacity-50"
+                          >
+                            <span
+                              className="box-border outline-none"
+                            >
+                              Total Max Load
+                            </span>{" "}
+                          </p>{" "}
+                        </CardHeader>{" "}
+
+                        <CardBody>
+                          <p
+                            className="box-border mb-0 mt-0 font-inter text-base font-bold leading-6 break-words flex min-w-0 text-black gap-[8px]"
+                          >
+                            0{" "}
+                            <span
+                              className="box-border outline-none whitespace-nowrap opacity-50 text-black ml-auto mr-0"
+
+                            >
+                              BTCA
+                            </span>
+                          </p>
+                        </CardBody>
+                      </Card>{" "}
+
+                      {/* Available Maxload */}
+                      <Card
+                        className="box-border rounded-md overflow-hidden shadow-sm flex flex-col justify-between relative bg-opacity-12 bg-white"
+                      >
+                        <CardHeader
+                          className="box-border flex items-center justify-between"
+                        >
+                          <p
+                            className="box-border mb-0 mt-0 font-inter text-base font-medium leading-5 text-black opacity-50"
+                          >
+                            <span
+                              className="box-border outline-none"
+                            >
+                              Available max load
+                            </span>{" "}
+                          </p>{" "}
+                        </CardHeader>{" "}
+
+                        <CardBody>
+                          <p
+                            className="box-border mb-0 mt-0 font-inter text-xl font-bold leading-6 break-words flex min-w-0 text-white gap-[8px]"
+
+                          >
+                            0{" "}
+                            <span
+                              className="box-border outline-none whitespace-nowrap opacity-50 text-black ml-auto mr-0"
+                            >
+                              BTCA
+                            </span>
+                          </p>
+                        </CardBody>
+                      </Card>{" "}
+
+                      {/* Used MaxLoad */}
+                      <Card
+                        className="box-border rounded-md overflow-hidden shadow-sm flex flex-col justify-between relative bg-opacity-12"
+                      >
+                        <CardHeader
+                          className="box-border flex items-center justify-between"
+                        >
+                          <p
+                            className="box-border mb-0 mt-0 font-inter text-base font-medium leading-5 text-black opacity-50"
+                          >
+                            <span
+                              className="box-border outline-none"
+                            >
+                              Used Max Load
+                            </span>{" "}
+                          </p>{" "}
+                        </CardHeader>{" "}
+
+                        <CardBody>
+                          <p
+                            className="box-border mb-0 mt-0 font-inter text-black text-base font-bold leading-6 break-words flex min-w-0 gap-2"
+                          >
+                            0{" "}
+                            <span
+                              className="box-border outline-none whitespace-nowrap opacity-50 text-black ml-auto mr-0"
+                            >
+                              BTCA
+                            </span>
+                          </p>
+                        </CardBody>
+
+                      </Card>
+
                     </div>
 
-                    {/* <!-- List --> */}
-                    <ul  class="mb-8 space-y-4 text-left">
-
-                      <li class="flex items-center space-x-3">
-                        {/* <!-- Icon --> */}
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span>Individual configuration</span>
-                      </li>
-
-                      <li class="flex items-center space-x-3">
-                        {/* <!-- Icon --> */}
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span>No setup, or hidden fees</span>
-                      </li>
-
-                      <li class="flex items-center space-x-3">
-                        {/* <!-- Icon --> */}
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span>Team size: <span class="font-semibold">1 developer</span></span>
-                      </li>
-
-                      <li class="flex items-center space-x-3">
-                        {/* <!-- Icon --> */}
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span>Premium support: <span class="font-semibold">6 months</span></span>
-                      </li>
-
-                      <li class="flex items-center space-x-3">
-                        {/* <!-- Icon --> */}
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span>Free updates: <span class="font-semibold">6 months</span></span>
-                      </li>
-
-                    </ul>
-
-                    <a href="/" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started</a>
-                  </div>
+                  </Wrapper>
 
                 </div>
 
@@ -1086,7 +919,7 @@ const DashboardMain = () => {
             {/* ######## */}
             {/* Farm speed */}
             <div
-              class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
+              class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-8"
             >
 
             </div>
@@ -1196,6 +1029,7 @@ const DashboardMain = () => {
 
 
           </div>
+
         )}
 
 

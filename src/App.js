@@ -8,6 +8,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import HomePage from "./pages/HomePage";
 import Dashboard from "./pages/Dashboard";
 import Activation from "./pages/Activation";
+import License from "./pages/License";
 import Support from "./pages/Support";
 import Wallet from "./pages/Wallet";
 import Payout from "./pages/Payout";
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/activation' element={<Activation />} />
+        <Route path='/license' element={<License />} />
         <Route path='/support' element={<Support />} />
         <Route path='/payout' element={<Payout />} />
         <Route path='/wallet' element={<Wallet />} />

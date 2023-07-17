@@ -6,7 +6,7 @@ import { Box, Flex, Spacer } from '@chakra-ui/react';
 import { ChevronUpIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 const Dashbar = () => {
-  const [activeButton, setActiveButton] = useState('chevronUpIcon');
+  const [activeButton, setActiveButton] = useState(null);
 
   const handleButtonClick = () => {
     setActiveButton(activeButton === 'chevronUpIcon' ? 'chevronDownIcon' : 'chevronUpIcon');

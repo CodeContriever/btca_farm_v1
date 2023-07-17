@@ -4,7 +4,7 @@ import React from 'react'
 const Sidebar = () => {
   return (
     <aside
-      class="bg-white shadow-xl outline outline-offset-2 outline-3 outline-[#A020F0]  box-border hidden lg:block transition-transform duration-300 ease-in-out bottom-0 flex-shrink-0 w-80 max-h-screen-[calc(100vh-88px)] left-0 top-0 overflow-hidden sticky z-10 transform-none"
+      class="bg-white shadow-xl outline outline-offset-2 outline-3 outline-[#A020F0]  box-border hidden lg:block transition-transform duration-300 ease-in-out bottom-0 flex-shrink-0 w-64 max-h-screen-[calc(100vh-88px)] left-0 top-0 overflow-hidden sticky z-10 transform-none"
       aria-label="Sidenav"
       id="drawer-navigation"
     >
@@ -12,7 +12,7 @@ const Sidebar = () => {
       <div class=" pt-8 pb-20 px-3 h-full bg-white dark:bg-gray-800">
 
         {/* sidebar items */}
-        <ul class="space-y-8">
+        <ul class="space-y-6">
 
           {/* Dashboard */}
           <li>

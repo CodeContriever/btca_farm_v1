@@ -345,7 +345,7 @@ const Nav2 = () => {
 
             {/* Application */}
             <li>
-              <a href="/wallet" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Applications</a>
+              <a href="/support" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Support</a>
             </li>
 
 

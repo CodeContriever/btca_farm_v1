@@ -1,11 +1,8 @@
 import React from 'react'
 import { useState } from "react";
 
-import { useDisclosure } from '@chakra-ui/react'
-import { Collapse } from '@chakra-ui/react';
 
 const Nav3 = () => {
-  const { isOpen, onToggle } = useDisclosure()
 
   const [activeButton, setActiveButton] = useState(null);
   const handleButtonClick = (buttonName) => {
@@ -21,155 +18,183 @@ const Nav3 = () => {
     <nav class="">
 
       {/* Nav Items */}
-      <div class="flex flex-wrap justify-between items-center gap-x-1 gap-y-4">
+      <div class="flex flex-wrap justify-between items-center">
 
-        <div class="flex justify-start items-center gap-8">
-
-          {/* Toggle sidebar button */}
-          <div>
-            <button
-              onClick={onToggle}
-              data-drawer-target="drawer-navigation"
-              data-drawer-toggle="drawer-navigation"
-              aria-controls="drawer-navigation"
-              class="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              <svg
-                aria-hidden="true"
-                class="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="hidden w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-
-              <span class="sr-only">Toggle sidebar</span>
-
-            </button>
-
-            <Collapse in={isOpen} animateOpacity>
-              <div class="items-center justify-start lg:hidden  flex w-auto order-1" id="mobile-menu-2">
-
-                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-
-                  {/* Dashboard */}
-                  <li>
-                    <a href="/dashboard" class="block py-2 pl-3 pr-4 text-white bg-[#A020F0]  rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
-                  </li>
-
-                  {/* activation*/}
-                  <li>
-                    <a href="/activation" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Activation</a>
-                  </li>
-
-                  {/* license key*/}
-                  <li>
-                    <a href="/license" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">License key</a>
-                  </li>
-
-                  {/* Wallet*/}
-                  <li>
-                    <a href="/wallet" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Wallet</a>
-                  </li>
-
-                  {/* payout*/}
-                  <li>
-                    <a href="/payout" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Payout</a>
-                  </li>
-
-                  <hr />
-
-                  {/* home*/}
-                  <li>
-                    <a href="/home" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Home</a>
-                  </li>
-
-                  {/* signout*/}
-                  <li>
-                    <a href="/signout" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Signout</a>
-                  </li>
-
-                </ul>
-
-              </div>
-
-            </Collapse>
-
-          </div>
+        {/* logo */}
+        <div class="order-2 lg:order-1 flex justify-start items-center gap-4 lg:gap-8">
 
           {/* Logo */}
           <a href="/home" class="flex items-center justify-between mr-4">
             <img
               src="/logo.png"
-              class="mr-3 h-8"
+              class="mr-3 h-6 lg:h-8"
               alt="BTCA Logo"
             />
 
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BTCA_FARM</span>
+            <span class="self-center text-md lg:text-2xl font-semibold whitespace-nowrap dark:text-white">BTCA_FARM</span>
           </a>
 
+        </div>
 
+        {/* Hamburger menu */}
+        <div
+          className=" order-1 box-border relative cursor-pointer  transition duration-300 "
+          tabIndex="0"
+        >
+          <button
+            onClick={() => handleButtonClick('menu')}
+            data-drawer-target="drawer-navigation"
+            data-drawer-toggle="drawer-navigation"
+            aria-controls="drawer-navigation"
+            class="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+
+            <span class="sr-only">Toggle sidebar</span>
+
+          </button>
+
+          {activeButton === 'menu' && (
+            <div
+              class="items-center justify-start lg:hidden  flex  w-[100%] order-1 bg-gray-400"
+              id="mobile-menu-2"
+              tabIndex="-1"
+            >
+
+              <ul
+                class="bg-white w-64 absolute top-8 z-10 flex flex-col justify-center p-4 gap-4 mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 ">
+
+                {/* Dashboard */}
+                <li>
+                  <a href="/dashboard"
+                    class="lg:bg-transparent text-[#A020F0] text-md lg:text-base dark:text-white"
+                    aria-current="page"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+
+                {/* activation*/}
+                <li>
+                  <a href="/activation"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Activation
+                  </a>
+                </li>
+
+                {/* license key*/}
+                <li>
+                  <a href="/license"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    License key
+                  </a>
+                </li>
+
+                {/* Wallet*/}
+                <li>
+                  <a href="/wallet"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Wallet
+                  </a>
+                </li>
+
+                {/* payout*/}
+                <li>
+                  <a href="/payout"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Payout
+                  </a>
+                </li>
+
+                <hr />
+
+                {/* home*/}
+                <li>
+                  <a href="/home"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >Home
+                  </a>
+                </li>
+
+                {/* signout*/}
+                <li>
+                  <a href="/signout"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Signout
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+          )}
 
         </div>
 
 
-        <div class="flex items-center justify-center lg:order-2">
+        {/* Notifications, language & Profile */}
+        <div class="flex items-center justify-center order-3 lg:order-2 ">
 
-          {/* Notifications, Apps, language & Profile */}
-          <div className='flex flex-col lg:flex-row gap-4 justify-center items-center'>
+          <div className='flex flex-row lg:gap-8 w-[100%]'>
 
             {/* <!-- Notifications --> */}
-            <div class="flex lg:flex-row justify-center items-center gap-4">
+            <div
+              class="relative flex flex-col justify-center items-center gap-4"
+              tabIndex="0"
+            >
 
-              {/* Notification button */}
+              {/* Notification bell */}
               <button
                 type="button"
                 onClick={() => handleButtonClick('notification')}
-                data-dropdown-toggle="notification-dropdown"
+                class="inline-flex relative  items-center px-4  py-2.5 text-sm font-medium text-center text-white bg-gray-400 rounded-lg ">
 
-                class={`p-2 mr-1 rounded-lg  hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ${activeButton === 'notification' ? ' bg-gray-800 text-gray-400' : 'text-gray-500'}`}
-              >
-                <span class="sr-only">View notifications</span>
-
-                {/* <!-- Bell icon --> */}
-                <svg
-                  aria-hidden="true"
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
-                  ></path>
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 21">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C17 15.4 17 16 16.462 16H3.538C3 16 3 15.4 3 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 10 3.464ZM1.866 8.832a8.458 8.458 0 0 1 2.252-5.714m14.016 5.714a8.458 8.458 0 0 0-2.252-5.714M6.54 16a3.48 3.48 0 0 0 6.92 0H6.54Z" />
                 </svg>
 
+
+                <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">8</div>
               </button>
 
               {/* <!-- Notification bell dropdowns --> */}
               {activeButton === 'notification' && (
                 <div
-                  class=" overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-gray-800 divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
+                  class="w-64 lg:w-90 absolute top-12 right-8 z-10 overflow-hidden  my-4  text-base list-none bg-gray-400 divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
                   id="notification-dropdown"
+                  tabIndex="-1"
                 >
+
                   <div
                     class="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-600 dark:text-gray-300"
                   >
@@ -372,118 +397,8 @@ const Nav3 = () => {
 
             </div>
 
-            {/* <!-- Apps with dropdowns --> */}
-            <div class="flex lg:flex-row gap-4">
-
-              {/* App button */}
-              <button
-                type="button"
-                onClick={() => handleButtonClick('apps')}
-                data-dropdown-toggle="apps-dropdown"
-                class={`hidden lg:flex p-2  rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ${activeButton === 'apps' ? 'bg-gray-800 text-gray-400' : 'text-gray-500'}`}
-              >
-                <span class="sr-only">View notifications</span>
-
-                {/* <!-- Icon --> */}
-                <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                  ></path>
-                </svg>
-
-              </button>
-
-              {/* <!-- App Dropdown items --> */}
-              {activeButton === 'apps' && (
-                <div
-                  class=" overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 shadow-lg dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
-                  id="apps-dropdown"
-                >
-
-                  {/* Heading */}
-                  <div
-                    class="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-600 dark:text-gray-300"
-                  >
-                    Apps
-                  </div>
-
-                  {/* Apps */}
-                  <div class="grid grid-cols-3 gap-4 p-4">
-
-                    {/* payout */}
-                    <a
-                      href="/payout"
-                      class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      <div class="text-sm text-gray-900 dark:text-white">Payout</div>
-                    </a>
-
-                    {/* Wallet */}
-                    <a
-                      href="/wallet"
-                      class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
-                        ></path>
-                      </svg>
-                      <div class="text-sm text-gray-900 dark:text-white">Wallet</div>
-                    </a>
-
-                    {/* Farm */}
-                    <a
-                      href="/dashboard"
-                      class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      <div class="text-sm text-gray-900 dark:text-white">Farm</div>
-                    </a>
-
-                  </div>
-
-                </div>
-              )}
-            </div>
-
             {/* <!-- Language with dropdowns --> */}
-            <div class="flex lg:flex-row gap-4">
+            <div class="relative flex flex-col gap-4">
 
               {/* Language button */}
               <button
@@ -538,9 +453,8 @@ const Nav3 = () => {
 
               {/* <!-- language Dropdown items --> */}
               {activeButton === 'flag' && (
-
                 <div
-                  class=" z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+                  class=" w-64 absolute top-12 right-8 z-10 my-4 text-base list-none bg-gray-400 rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
                   id="language-dropdown"
                 >
                   <ul class="py-1" role="none">
@@ -707,7 +621,7 @@ const Nav3 = () => {
             </div>
 
             {/* User profile menu */}
-            <div class="flex lg:flex-row justify-center items-center gap-4">
+            <div class="relative flex flex-col justify-center items-center gap-4">
 
               {/* User profile button */}
               <button
@@ -729,7 +643,7 @@ const Nav3 = () => {
               {/* <!-- User profile menu items--> */}
               {activeButton === 'profile' && (
                 <div
-                  class=" z-50 my-4 w-56 text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
+                  class=" w-64 absolute top-12 right-20 lg:right-12 z-10 my-4  text-base list-none bg-gray-400 divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
                   id="dropdown"
                 >
 

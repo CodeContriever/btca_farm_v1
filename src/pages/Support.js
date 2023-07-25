@@ -1,18 +1,20 @@
 import React from "react";
-
+import { useState, } from 'react';
 
 import Sidebar from "../components/Sidebar";
 import Nav3 from "../components/Nav3";
 import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
 
-import { Box, HStack, Image, } from "@chakra-ui/react";
+import convertToBase64 from '../helper/convert';
+
+import { Box, HStack, } from "@chakra-ui/react";
 import { Card, CardHeader, CardBody, CardFooter, } from '@chakra-ui/react'
 import {
   Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon,
 } from '@chakra-ui/react'
 import { InputGroup, Input } from '@chakra-ui/react'
-import {  Button } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { Menu, MenuButton, MenuList, MenuItem, } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
@@ -20,10 +22,17 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 
 
 const Support = () => {
+  const [file, setFile] = useState()
+
+  /** formik doensn't support file upload so we need to create this handler */
+  const onUpload = async e => {
+    const base64 = await convertToBase64(e.target.files[0]);
+    setFile(base64);
+  }
 
   return (
     <div
-    className="">
+      className="">
 
       {/* Header */}
       <header className="bg-white border-b-2 border-gray-200 py-4">
@@ -55,7 +64,7 @@ const Support = () => {
             {/* Wallet card */}
             <div className="col-span-3 lg:col-span-2 w-[100%]">
 
-            <Wrapper
+              <Wrapper
                 className='box-border gap-6 grid mb-6 grid-cols-1 max-cols-content'
               >
                 <div className="box-border flex flex-col gap-6">
@@ -222,18 +231,31 @@ const Support = () => {
                               maxW='sm'
                               className="box-border border-dashed border-gray-300 rounded-md bg-gray-100 text-gray-300 cursor-pointer">
                               <CardBody>
-                                <Image
-                                  src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                                  alt='Green double couch with wooden legs'
-                                  className="border-0 box-content max-w-full align-middle h-[120px] w-[164px]"
+
+                                <label
+                                  htmlFor="screenshot"
+                                >
+                                  <img
+                                    src={file || `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80`}
+                                    alt='Green double couch with wooden legs'
+
+                                  />
+                                </label>
+
+                                <input
+                                  onChange={onUpload}
+                                  type="file"
+                                  id='profile'
+                                  name='profile'
                                 />
+
                                 <Box
                                   className="flex flex-col items-center justify-center "
                                 >
                                   <h1
                                     className="box-border mb-0 text-gray-700 text-base font-inter font-medium leading-5 mt-4"
                                   >
-                                    Drag and drop your photo here
+                                    Drag and drop your screenshot here
                                   </h1>
 
                                   <p
@@ -246,6 +268,7 @@ const Support = () => {
                               </CardBody>
 
                             </Card>
+
                           </Box>
 
                         </AccordionPanel>
@@ -395,18 +418,31 @@ const Support = () => {
                               maxW='sm'
                               className="box-border border-dashed border-gray-300 rounded-md bg-gray-100 text-gray-300 cursor-pointer">
                               <CardBody>
-                                <Image
-                                  src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                                  alt='Green double couch with wooden legs'
-                                  className="border-0 box-content max-w-full align-middle h-[120px] w-[164px]"
+
+                                <label
+                                  htmlFor="screenshot"
+                                >
+                                  <img
+                                    src={file || `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80`}
+                                    alt='Green double couch with wooden legs'
+
+                                  />
+                                </label>
+
+                                <input
+                                  onChange={onUpload}
+                                  type="file"
+                                  id='profile'
+                                  name='profile'
                                 />
+
                                 <Box
                                   className="flex flex-col items-center justify-center "
                                 >
                                   <h1
                                     className="box-border mb-0 text-gray-700 text-base font-inter font-medium leading-5 mt-4"
                                   >
-                                    Drag and drop your photo here
+                                    Drag and drop your screenshot here
                                   </h1>
 
                                   <p
@@ -419,6 +455,7 @@ const Support = () => {
                               </CardBody>
 
                             </Card>
+
                           </Box>
 
                           <Button
@@ -595,18 +632,31 @@ const Support = () => {
                               maxW='sm'
                               className="box-border border-dashed border-gray-300 rounded-md bg-gray-100 text-gray-300 cursor-pointer">
                               <CardBody>
-                                <Image
-                                  src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                                  alt='Green double couch with wooden legs'
-                                  className="border-0 box-content max-w-full align-middle h-[120px] w-[164px]"
+
+                                <label
+                                  htmlFor="screenshot"
+                                >
+                                  <img
+                                    src={file || `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80`}
+                                    alt='Green double couch with wooden legs'
+
+                                  />
+                                </label>
+
+                                <input
+                                  onChange={onUpload}
+                                  type="file"
+                                  id='profile'
+                                  name='profile'
                                 />
+
                                 <Box
                                   className="flex flex-col items-center justify-center "
                                 >
                                   <h1
-                                    className="box-border mb-0 text-gray-700 text-base font-inter  font-medium leading-5 mt-4"
+                                    className="box-border mb-0 text-gray-700 text-base font-inter font-medium leading-5 mt-4"
                                   >
-                                    Drag and drop your photo here
+                                    Drag and drop your screenshot here
                                   </h1>
 
                                   <p
@@ -619,6 +669,7 @@ const Support = () => {
                               </CardBody>
 
                             </Card>
+
                           </Box>
 
                           <Button
@@ -774,18 +825,31 @@ const Support = () => {
                               maxW='sm'
                               className="box-border border-dashed border-gray-300 rounded-md bg-gray-100 text-gray-300 cursor-pointer">
                               <CardBody>
-                                <Image
-                                  src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                                  alt='Green double couch with wooden legs'
-                                  className="border-0 box-content max-w-full align-middle h-[120px] w-[164px]"
+
+                                <label
+                                  htmlFor="screenshot"
+                                >
+                                  <img
+                                    src={file || `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80`}
+                                    alt='Green double couch with wooden legs'
+
+                                  />
+                                </label>
+
+                                <input
+                                  onChange={onUpload}
+                                  type="file"
+                                  id='profile'
+                                  name='profile'
                                 />
+
                                 <Box
                                   className="flex flex-col items-center justify-center "
                                 >
                                   <h1
-                                    className="box-border mb-0 text-gray-700 text-base font-inter  font-medium leading-5 mt-4"
+                                    className="box-border mb-0 text-gray-700 text-base font-inter font-medium leading-5 mt-4"
                                   >
-                                    Drag and drop your photo here
+                                    Drag and drop your screenshot here
                                   </h1>
 
                                   <p
@@ -798,6 +862,7 @@ const Support = () => {
                               </CardBody>
 
                             </Card>
+
                           </Box>
 
                           <Button
@@ -953,18 +1018,31 @@ const Support = () => {
                               maxW='sm'
                               className="box-border border-dashed border-gray-300 rounded-md bg-gray-100 text-gray-300 cursor-pointer">
                               <CardBody>
-                                <Image
-                                  src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                                  alt='Green double couch with wooden legs'
-                                  className="border-0 box-content max-w-full align-middle h-[120px] w-[164px]"
+
+                                <label
+                                  htmlFor="screenshot"
+                                >
+                                  <img
+                                    src={file || `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80`}
+                                    alt='Green double couch with wooden legs'
+
+                                  />
+                                </label>
+
+                                <input
+                                  onChange={onUpload}
+                                  type="file"
+                                  id='profile'
+                                  name='profile'
                                 />
+
                                 <Box
                                   className="flex flex-col items-center justify-center "
                                 >
                                   <h1
                                     className="box-border mb-0 text-gray-700 text-base font-inter font-medium leading-5 mt-4"
                                   >
-                                    Drag and drop your photo here
+                                    Drag and drop your screenshot here
                                   </h1>
 
                                   <p
@@ -977,6 +1055,7 @@ const Support = () => {
                               </CardBody>
 
                             </Card>
+
                           </Box>
 
                           <Button
@@ -1012,7 +1091,7 @@ const Support = () => {
                               <Input
                                 type='text'
                                 variant='filled'
-                                isRequired='true' 
+                                isRequired='true'
                               />
                               <Input
                                 type='email'
@@ -1131,18 +1210,31 @@ const Support = () => {
                               maxW='sm'
                               className="box-border border-dashed border-gray-300 rounded-md bg-gray-100 text-gray-300 cursor-pointer">
                               <CardBody>
-                                <Image
-                                  src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                                  alt='Green double couch with wooden legs'
-                                  className="border-0 box-content max-w-full align-middle h-[120px] w-[164px]"
+
+                                <label
+                                  htmlFor="screenshot"
+                                >
+                                  <img
+                                    src={file || `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80`}
+                                    alt='Green double couch with wooden legs'
+
+                                  />
+                                </label>
+
+                                <input
+                                  onChange={onUpload}
+                                  type="file"
+                                  id='profile'
+                                  name='profile'
                                 />
+
                                 <Box
                                   className="flex flex-col items-center justify-center "
                                 >
                                   <h1
-                                    className="box-border mb-0 text-gray-700 text-base font-inter  font-medium leading-5 mt-4"
+                                    className="box-border mb-0 text-gray-700 text-base font-inter font-medium leading-5 mt-4"
                                   >
-                                    Drag and drop your photo here
+                                    Drag and drop your screenshot here
                                   </h1>
 
                                   <p
@@ -1155,6 +1247,7 @@ const Support = () => {
                               </CardBody>
 
                             </Card>
+
                           </Box>
 
                           <Button

@@ -16,7 +16,7 @@ const Activation = () => {
       className="">
 
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-200 py-4">
+      <header className="h-20 sticky z-50 bg-white border-b-2 border-gray-200 py-4">
 
         {/* Wrapper */}
         <div className="container mx-auto px-4">
@@ -42,7 +42,7 @@ const Activation = () => {
             <div className="">
               <Sidebar />
             </div>
-            
+
 
             {/* Activation card */}
             <div className="col-span-3 lg:col-span-2 w-[100%]">
@@ -127,7 +127,7 @@ const Activation = () => {
 
     </div>
 
- 
+
 
   )
 }

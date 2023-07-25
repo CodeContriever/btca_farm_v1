@@ -1,56 +1,207 @@
 import React from 'react'
 import { useState } from "react";
 
-import { useDisclosure } from '@chakra-ui/react'
-import { Collapse } from '@chakra-ui/react';
+
 
 const Nav2 = () => {
-  const { isOpen, onToggle } = useDisclosure()
 
   const [activeButton, setActiveButton] = useState(null);
   const handleButtonClick = (buttonName) => {
     if (buttonName === activeButton) {
-      setActiveButton(null); // Hide content if the same button is clicked twice
+      setActiveButton(null);
     } else {
       setActiveButton(buttonName);
     }
   };
 
-    const handleLogout = () => {
-      // Clear the user's session or authentication token
-      // Example: Remove the token from local storage
-      localStorage.removeItem('authToken');
-  
-      // Redirect the user to the sign-in page
-      window.location.href = '/signin';
-    };
-
   return (
-    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
 
-      <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
+    <nav class="">
 
-        {/* Logo */}
-        <a href="/home" class="flex items-center">
+      {/* Nav Items */}
+      <div class="flex flex-wrap justify-between items-center">
 
-          <img src="/logo.png" class="h-6 mr-3 sm:h-9" alt="BTCA Logo" />
+        {/* logo */}
+        <div class="order-2 lg:order-1 flex justify-start items-center gap-4 lg:gap-8">
 
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">BTCA_FARM</span>
+          {/* Logo */}
+          <a href="/home" class="flex items-center justify-between mr-4">
+            <img
+              src="/logo.png"
+              class="mr-3 h-6 lg:h-8"
+              alt="BTCA Logo"
+            />
 
-        </a>
+            <span class="self-center text-md lg:text-2xl font-semibold whitespace-nowrap dark:text-white">BTCA_FARM</span>
+          </a>
 
-        <div class="flex items-center lg:order-2 gap-4">
+        </div>
 
-          {/* Notification & Hamburger */}
-          <div className='flex flex-row  gap-4 justify-center items-center'>
+        {/* Hamburger menu */}
+        <div
+          className=" order-1 box-border relative cursor-pointer  transition duration-300 "
+          tabIndex="0"
+        >
+          <button
+            onClick={() => handleButtonClick('menu')}
+            data-drawer-target="drawer-navigation"
+            data-drawer-toggle="drawer-navigation"
+            aria-controls="drawer-navigation"
+            class="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
 
-            {/* Notictaions */}
-            <div class="flex lg:flex-row gap-4">
+            <span class="sr-only">Toggle sidebar</span>
+
+          </button>
+
+          {activeButton === 'menu' && (
+            <div
+              class="items-center justify-start lg:hidden  flex  w-[100%] order-1 bg-white"
+              id="mobile-menu-2"
+              tabIndex="-1"
+            >
+
+              <ul
+                class="bg-white w-64 absolute top-8 z-10 flex flex-col justify-center p-4 gap-4 mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 ">
+
+                {/* Dashboard */}
+                <li>
+                  <a href="/dashboard"
+                    class="lg:bg-transparent text-[#A020F0] text-md lg:text-base dark:text-white"
+                    aria-current="page"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+
+                {/* activation*/}
+                <li>
+                  <a href="/activation"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Activation
+                  </a>
+                </li>
+
+                {/* license key*/}
+                <li>
+                  <a href="/license"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    License key
+                  </a>
+                </li>
+
+                {/* Wallet*/}
+                <li>
+                  <a href="/wallet"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Wallet
+                  </a>
+                </li>
+
+                {/* payout*/}
+                <li>
+                  <a href="/payout"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Payout
+                  </a>
+                </li>
+
+                <hr />
+
+                {/* home*/}
+                <li>
+                  <a href="/home"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >Home
+                  </a>
+                </li>
+
+                {/* signout*/}
+                <li>
+                  <a href="/signout"
+                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
+                  >
+                    Signout
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+          )}
+
+        </div>
+
+        {/* Nav items */}
+        <div class="hidden w-full lg:flex items-center justify-between order-2 lg:w-auto " id="nav_items">
+          <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+
+            {/* Home */}
+            <li>
+              <a href="/dashboard" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]   rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
+            </li>
+
+            {/* Wallet */}
+            <li>
+              <a href="/wallet" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Wallet</a>
+            </li>
+
+            {/* Application */}
+            <li>
+              <a href="/support" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Support</a>
+            </li>
+
+
+          </ul>
+
+        </div>
+
+        {/* Notifications, language & Profile */}
+        <div class="flex items-center justify-center order-3 lg:order-2 ">
+
+          <div className='flex flex-row lg:gap-8 w-[100%]'>
+
+            {/* <!-- Notifications --> */}
+            <div
+              class="relative flex flex-col justify-center items-center gap-4"
+              tabIndex="0"
+            >
+
               {/* Notification bell */}
               <button
                 type="button"
                 onClick={() => handleButtonClick('notification')}
-                class="inline-flex relative  items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-gray-400 rounded-lg ">
+                class="inline-flex relative  items-center px-4  py-2.5 text-sm font-medium text-center text-white bg-gray-400 rounded-lg ">
 
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 21">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C17 15.4 17 16 16.462 16H3.538C3 16 3 15.4 3 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 10 3.464ZM1.866 8.832a8.458 8.458 0 0 1 2.252-5.714m14.016 5.714a8.458 8.458 0 0 0-2.252-5.714M6.54 16a3.48 3.48 0 0 0 6.92 0H6.54Z" />
@@ -63,9 +214,11 @@ const Nav2 = () => {
               {/* <!-- Notification bell dropdowns --> */}
               {activeButton === 'notification' && (
                 <div
-                  class=" overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-gray-800 divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
+                  class="w-64 lg:w-90 absolute top-12 right-8 z-10 overflow-hidden  my-4  text-base list-none bg-gray-800 divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
                   id="notification-dropdown"
+                  tabIndex="-1"
                 >
+
                   <div
                     class="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-600 dark:text-gray-300"
                   >
@@ -265,97 +418,326 @@ const Nav2 = () => {
 
                 </div>
               )}
+
             </div>
 
-            {/* Hamburger menu */}
-            <div class="flex flex-col justify-start items-center">
+            {/* <!-- Language with dropdowns --> */}
+            <div class="relative flex flex-col gap-4">
+
+              {/* Language button */}
               <button
-                data-collapse-toggle="mobile-menu-2"
                 type="button"
-                class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="mobile-menu-2"
-                aria-expanded="false"
-                onClick={onToggle}
+                onClick={() => handleButtonClick('flag')}
+                data-dropdown-toggle="apps-dropdown"
+                class={`hidden lg:flex p-2  rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ${activeButton === 'flag' ? 'bg-gray-800 text-gray-400' : 'text-gray-500'}`}
               >
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <span class="sr-only">View notifications</span>
+
+                {/* <!-- Icon --> */}
+                <svg
+                  aria-hidden="true"
+                  class="h-5 w-5 rounded-full mt-0.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  // xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 3900 3900"
+                >
+                  <path fill="#b22234" d="M0 0h7410v3900H0z" />
+                  <path
+                    d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
+                    stroke="#fff"
+                    stroke-width="300"
+                  />
+                  <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+                  <g fill="#fff">
+                    <g id="d">
+                      <g id="c">
+                        <g id="e">
+                          <g id="b">
+                            <path
+                              id="a"
+                              d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                            />
+                            <use y="420" />
+                            <use y="840" />
+                            <use y="1260" />
+                          </g>
+                          <use y="1680" />
+                        </g>
+                        <use x="247" y="210" />
+                      </g>
+                      <use x="494" />
+                    </g>
+                    <use x="988" />
+                    <use x="1976" />
+                    <use x="2470" />
+                  </g>
+                </svg>
+
               </button>
 
-              <Collapse in={isOpen} animateOpacity>
-                <div class="items-center justify-start lg:hidden  flex w-auto order-1" id="mobile-menu-2">
-                  <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+              {/* <!-- language Dropdown items --> */}
+              {activeButton === 'flag' && (
+                <div
+                  class=" w-64 absolute top-12 right-8 z-10 my-4 text-base list-none bg-gray-500 rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+                  id="language-dropdown"
+                >
+                  <ul class="py-1" role="none">
 
-                    {/* Home */}
+                    {/* English */}
                     <li>
-                      <a href="/dashboard" class="block py-2 pl-3 pr-4 text-white bg-[#A020F0]  rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
+                      <a
+                        href="/english"
+                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600"
+                        role="menuitem"
+                      >
+                        <div class="inline-flex items-center">
+                          <svg
+                            aria-hidden="true"
+                            class="h-3.5 w-3.5 rounded-full mr-2"
+                            xmlns="http://www.w3.org/2000/svg"
+                            id="flag-icon-css-us"
+                            viewBox="0 0 512 512"
+                          >
+                            <g fill-rule="evenodd">
+                              <g stroke-width="1pt">
+                                <path
+                                  fill="#bd3d44"
+                                  d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                  transform="scale(3.9385)"
+                                />
+                                <path
+                                  fill="#fff"
+                                  d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                  transform="scale(3.9385)"
+                                />
+                              </g>
+                              <path
+                                fill="#192f5d"
+                                d="M0 0h98.8v70H0z"
+                                transform="scale(3.9385)"
+                              />
+                              <path
+                                fill="#fff"
+                                d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
+                                transform="scale(3.9385)"
+                              />
+                            </g>
+                          </svg>
+                          English (US)
+                        </div>
+                      </a>
                     </li>
 
-                    {/* About */}
+                    {/* Deutsch */}
                     <li>
-                      <a href="/wallet" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Wallet</a>
+                      <a
+                        href="/Deutsch"
+                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
+                        role="menuitem"
+                      >
+                        <div class="inline-flex items-center">
+                          <svg
+                            aria-hidden="true"
+                            class="h-3.5 w-3.5 rounded-full mr-2"
+                            xmlns="http://www.w3.org/2000/svg"
+                            id="flag-icon-css-de"
+                            viewBox="0 0 512 512"
+                          >
+                            <path fill="#ffce00" d="M0 341.3h512V512H0z" />
+                            <path d="M0 0h512v170.7H0z" />
+                            <path fill="#d00" d="M0 170.7h512v170.6H0z" />
+                          </svg>
+                          Deutsch
+                        </div>
+                      </a>
                     </li>
 
-                    {/* Contact Us */}
+                    {/* Italiano */}
                     <li>
-                      <a href="/application" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Applications</a>
+                      <a
+                        href="/italiano"
+                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
+                        role="menuitem"
+                      >
+                        <div class="inline-flex items-center">
+                          <svg
+                            aria-hidden="true"
+                            class="h-3.5 w-3.5 rounded-full mr-2"
+                            xmlns="http://www.w3.org/2000/svg"
+                            id="flag-icon-css-it"
+                            viewBox="0 0 512 512"
+                          >
+                            <g fill-rule="evenodd" stroke-width="1pt">
+                              <path fill="#fff" d="M0 0h512v512H0z" />
+                              <path fill="#009246" d="M0 0h170.7v512H0z" />
+                              <path fill="#ce2b37" d="M341.3 0H512v512H341.3z" />
+                            </g>
+                          </svg>
+                          Italiano
+                        </div>
+                      </a>
                     </li>
 
-                    <hr />
-
-                    {/* Signout */}
+                    {/*  中文 (繁體) */}
                     <li>
-                      <a href="/signout" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#A020F0] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Signout</a>
+                      <a
+                        href="/ 中文 (繁體)"
+                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600"
+                        role="menuitem"
+                      >
+                        <div class="inline-flex items-center">
+                          <svg
+                            aria-hidden="true"
+                            class="h-3.5 w-3.5 rounded-full mr-2"
+                            xmlns="http://www.w3.org/2000/svg"
+                            id="flag-icon-css-cn"
+                            viewBox="0 0 512 512"
+                          >
+                            <defs>
+                              <path
+                                id="a"
+                                fill="#ffde00"
+                                d="M1-.3L-.7.8 0-1 .6.8-1-.3z"
+                              />
+                            </defs>
+                            <path fill="#de2910" d="M0 0h512v512H0z" />
+                            <use
+                              width="30"
+                              height="20"
+                              transform="matrix(76.8 0 0 76.8 128 128)"
+
+                            />
+                            <use
+                              width="30"
+                              height="20"
+                              transform="rotate(-121 142.6 -47) scale(25.5827)"
+
+                            />
+                            <use
+                              width="30"
+                              height="20"
+                              transform="rotate(-98.1 198 -82) scale(25.6)"
+
+                            />
+                            <use
+                              width="30"
+                              height="20"
+                              transform="rotate(-74 272.4 -114) scale(25.6137)"
+
+                            />
+                            <use
+                              width="30"
+                              height="20"
+                              transform="matrix(16 -19.968 19.968 16 256 230.4)"
+
+                            />
+                          </svg>
+                          中文 (繁體)
+                        </div>
+                      </a>
                     </li>
 
                   </ul>
 
                 </div>
-              </Collapse>
+              )}
 
             </div>
 
-            {/*signout */}
-            <button
-                      type="submit"
-                      onClick={handleLogout}
-                      class="hidden lg:flex justify-center items-center text-white bg-[#A020F0] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ml-8 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            {/* User profile menu */}
+            <div class="relative flex flex-col justify-center items-center gap-4">
+
+              {/* User profile button */}
+              <button
+                type="button"
+                onClick={() => handleButtonClick('profile')}
+                class={`flex mx-3 text-sm bg-gray-800 p-0.5 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ${activeButton === 'apps' ? 'text-[#A020F0]' : 'text-gray-500'}`}
+                id="user-menu-button"
+                aria-expanded="false"
+                data-dropdown-toggle="dropdown"
+              >
+                <span class="sr-only">Open user menu</span>
+                <img
+                  class="w-8 h-8 rounded-full"
+                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
+                  alt=""
+                />
+              </button>
+
+              {/* <!-- User profile menu items--> */}
+              {activeButton === 'profile' && (
+                <div
+                  class=" w-64 absolute top-12 right-20 lg:right-12 z-10 my-4  text-base list-none bg-gray-500 text-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
+                  id="dropdown"
+                >
+
+                  {/* User name and email */}
+                  <div class="py-3 px-4">
+
+                    <span
+                      class="block text-sm font-semibold text-gray-900 dark:text-white"
+                    >Neil Sims</span
+                    >
+                    <span
+                      class="block text-sm text-gray-900 truncate dark:text-white"
+                    >name@flowbite.com</span
+                    >
+                  </div>
+
+                  {/* User account details & settings */}
+                  {/*  */}
+                  <ul
+                    class="py-1 text-gray-700 dark:text-gray-300"
+                    aria-labelledby="dropdown"
+                  >
+
+                    {/* Profile */}
+                    <li>
+                      <a
+                        href="/profile"
+                        class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                      >My profile</a>
+                    </li>
+
+                    {/* Account settings */}
+                    <li>
+                      <a
+                        href="/settings"
+                        class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                      >Account settings</a
                       >
-                        Signout
-                      </button>
+                    </li>
+
+                  </ul>
+
+                  {/* Signout */}
+                  <ul
+                    class="py-1 text-gray-700 dark:text-gray-300"
+                    aria-labelledby="dropdown"
+                  >
+
+                    <li>
+                      <a
+                        href="/signin"
+                        class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Sign out</a
+                      >
+                    </li>
+
+                  </ul>
+
+                </div>
+              )}
+            </div>
 
           </div>
-
-
-        </div>
-
-        {/* Nav items */}
-        <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-          <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-
-            {/* Home */}
-            <li>
-              <a href="/dashboard" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]   rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
-            </li>
-
-            {/* Wallet */}
-            <li>
-              <a href="/wallet" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Wallet</a>
-            </li>
-
-            {/* Application */}
-            <li>
-              <a href="/support" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Support</a>
-            </li>
-
-
-          </ul>
 
         </div>
 
       </div>
 
     </nav>
+
   )
 }
 

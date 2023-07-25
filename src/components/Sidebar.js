@@ -4,12 +4,12 @@ import React from 'react'
 const Sidebar = () => {
   return (
     <aside
-      class="bg-white shadow-xl outline outline-offset-2 outline-3 outline-[#A020F0]  box-border hidden lg:block transition-transform duration-300 ease-in-out bottom-0 flex-shrink-0 w-64 max-h-screen-[calc(100vh-88px)] left-0 top-0 overflow-hidden sticky z-10 transform-none"
+      class="bg-white shadow-xl outline outline-offset-2 outline-3 outline-[#A020F0]  box-border hidden lg:flex transition-transform duration-300 ease-in-out bottom-0 flex-shrink-0 w-80 max-h-screen-[calc(100vh-88px)] left-0 top-0 overflow-hidden sticky z-10 transform-none"
       aria-label="Sidenav"
       id="drawer-navigation"
     >
 
-      <div class=" pt-8 pb-20 px-3 h-full bg-white dark:bg-gray-800">
+      <div class="w-full pt-8 pb-20 px-3 h-full bg-white dark:bg-gray-800">
 
         {/* sidebar items */}
         <ul class="space-y-6">
@@ -71,17 +71,61 @@ const Sidebar = () => {
             </a>
           </li>
 
-          {/* Payout */}
+
+
+          {/* Withdrawal */}
           <li>
             <a
-              href="/payout"
+              href="/withdrawal"
               class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6V2a.97.97 0 0 0-.933-1H5.828a2 2 0 0 0-1.414.586L1.586 4.414A2 2 0 0 0 1 5.828V18a.969.969 0 0 0 .933 1H14a1 1 0 0 0 1-1M6 1v4a1 1 0 0 1-1 1H1m6 6h9m-1.939-2.768L16.828 12l-2.767 2.768" />
               </svg>
 
-              <span class="ml-3">Payout</span>
+              <span class="ml-3">Withdrawal</span>
+            </a>
+          </li>
+
+          {/* Franchise */}
+          <li>
+            <a
+              href="/franchise"
+              class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6V2a.97.97 0 0 0-.933-1H5.828a2 2 0 0 0-1.414.586L1.586 4.414A2 2 0 0 0 1 5.828V18a.969.969 0 0 0 .933 1H14a1 1 0 0 0 1-1M6 1v4a1 1 0 0 1-1 1H1m6 6h9m-1.939-2.768L16.828 12l-2.767 2.768" />
+              </svg>
+
+              <span class="ml-3">Franchise</span>
+            </a>
+          </li>
+
+          {/* Reseller */}
+          <li>
+            <a
+              href="/reseller"
+              class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6V2a.97.97 0 0 0-.933-1H5.828a2 2 0 0 0-1.414.586L1.586 4.414A2 2 0 0 0 1 5.828V18a.969.969 0 0 0 .933 1H14a1 1 0 0 0 1-1M6 1v4a1 1 0 0 1-1 1H1m6 6h9m-1.939-2.768L16.828 12l-2.767 2.768" />
+              </svg>
+
+              <span class="ml-3">Reseller</span>
+            </a>
+          </li>
+
+          {/* Applications */}
+          <li>
+            <a
+              href="/applications"
+              class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6V2a.97.97 0 0 0-.933-1H5.828a2 2 0 0 0-1.414.586L1.586 4.414A2 2 0 0 0 1 5.828V18a.969.969 0 0 0 .933 1H14a1 1 0 0 0 1-1M6 1v4a1 1 0 0 1-1 1H1m6 6h9m-1.939-2.768L16.828 12l-2.767 2.768" />
+              </svg>
+
+              <span class="ml-3">Applications</span>
             </a>
           </li>
 

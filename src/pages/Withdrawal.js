@@ -10,7 +10,7 @@ import { Button } from '@chakra-ui/react';
 
 
 
-const Payout = () => {
+const Withdrawal = () => {
 
   const [activeButton, setActiveButton] = useState("payout");
   const handleButtonClick = (buttonName) => {
@@ -91,7 +91,7 @@ const Payout = () => {
                 <h1
                   className="box-border mb-0 mt-0 text-gray-800 text-base lg:text-2xl font-medium font-inter leading-6"
                 >
-                  Payout
+                  Withdrawal
                 </h1>
 
               </div>
@@ -335,4 +335,4 @@ const Payout = () => {
   )
 }
 
-export default Payout
+export default Withdrawal

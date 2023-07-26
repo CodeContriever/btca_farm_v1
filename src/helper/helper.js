@@ -1,7 +1,6 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 
 /** Make API Requests */
@@ -52,69 +51,127 @@ export async function authenticate(username) {
 }
 
 
+
 /** register user function */
-export async function registerUser(credentials) {
+export async function registerUser(
+  fullName,
+  phoneNumber,
+  email,
+  password,
+  username,
+  referredBy
+) {
   try {
     // Step 1: Send a POST request to create a user account using the provided credentials
-    const { data: { msg }, status } = await axios.post(
+    const { status } = await axios.post(
       'https://btca.afribook.world/account/createUserAccount',
-      credentials
+      {
+        fullName,
+        phoneNumber,
+        email,
+        password,
+        username,
+        referredBy,
+      }
     );
 
-    // Step 2: Destructure the credentials object to extract specific properties
-    let { fullName, phoneNumber, email, username, password, referredBy } = credentials;
-
-    // Step 3: Save the user credentials to the database by sending a POST request to the appropriate endpoint on the server-side
-    await axios.post('https://your-server/api/saveUserCredentials', {
-      fullName,
-      phoneNumber,
-      email,
-      username,
-      password,
-      referredBy,
-    });
-
-    /** send email */
-    // Step 4: If the user account creation was successful (status 201), send an email notification
+    // Step 2: If the user account creation was successful (status 201),
+    // redirect to the verifyEmail page
     if (status === 201) {
-      await axios.post('https://btca.afribook.world/api/registerMail', {
-        username,
-        userEmail: email,
-        text: msg,
-      });
+      // Redirect to the verifyEmail page.
+      window.location.href = '/verifyEmail';
     }
 
-    // Step 5: Return the success message from the API response
-    return msg;
+    // There's no need to return any specific data since the frontend
+    // is only responsible for the redirection after the signup request.
+    return;
   } catch (error) {
-    // Step 6: Handle the error or return a custom error message
+    // Step 3: Handle the error or return a custom error message
     console.error('AxiosError:', error.message);
 
-    // Step 7: Rethrow the error to be caught in the onSubmit function
+    // Step 4: Rethrow the error to be caught in the onSubmit function
     throw error;
   }
 }
-  
 
-  /** get User details */
-  export async function getUser({ username }) {
-    try {
-      // Step 1: Send a GET request to fetch user data for the given username
-      const response = await axios.get(`/api/user/${username}`);
-  
-      // Step 2: Return the user data from the response
-      return response.data;
-    } catch (error) {
-      // Step 3: If there is an error (e.g., user data not found or server error), handle the error
-  
-      // Step 4: Extract the error message from the response, if available, using optional chaining (?.)
-      const errorMessage = error.response?.data?.error || 'Error fetching user data';
-  
-      // Step 5: Return a rejected promise with an object containing the error message
-      // The calling function can use this promise rejection to handle the error appropriately
-      return Promise.reject({ error: errorMessage });
+/** verify registered email function */
+export async function verifyRegisteredEmail(email) {
+  try {
+    // Step 1: Send a POST request to the backend API to verify the email
+    const { status } = await axios.post(
+      'https://btca.afribook.world/account/verifyEmail',
+      { email } // Include the email in the request body
+    );
+
+    // Step 2: If the email verification was successful (status 201),
+    // redirect to the verifyOTP page
+    if (status === 201) {
+      // Redirect to the verifyOTP page.
+      window.location.href = '/verifyOTP';
     }
+
+    // There's no need to return any specific data since the frontend
+    // is only responsible for the redirection after the email verification request.
+    return;
+  } catch (error) {
+    // Step 3: Handle the error or return a custom error message
+    console.error('AxiosError:', error.message);
+
+    // Step 4: Rethrow the error to be caught in the calling function
+    throw error;
   }
+}
+
+
+/** verify registration OTP function */
+export async function verifyRegistrationOTP(email) {
+  try {
+    // Step 1: Send a POST request to the backend API to verify the email
+    const { status } = await axios.post(
+      'https://btca.afribook.world/account/verifyEmail',
+      { email } // Include the email in the request body
+    );
+
+    // Step 2: If the email verification was successful (status 201),
+    // redirect to the verifyOTP page
+    if (status === 201) {
+      // Redirect to the verifyOTP page.
+      window.location.href = '/home';
+    }
+
+    // There's no need to return any specific data since the frontend
+    // is only responsible for the redirection after the email verification request.
+    return;
+  } catch (error) {
+    // Step 3: Handle the error or return a custom error message
+    console.error('AxiosError:', error.message);
+
+    // Step 4: Rethrow the error to be caught in the calling function
+    throw error;
+  }
+}
+
+
+
+/** get User details */
+export async function getUser({ username }) {
+  try {
+    // Step 1: Send a GET request to fetch user data for the given username
+    const response = await axios.get(`/api/user/${username}`);
+
+    // Step 2: Return the user data from the response
+    return response.data;
+  } catch (error) {
+    // Step 3: If there is an error (e.g., user data not found or server error), handle the error
+
+    // Step 4: Extract the error message from the response, if available, using optional chaining (?.)
+    const errorMessage = error.response?.data?.error || 'Error fetching user data';
+
+    // Step 5: Return a rejected promise with an object containing the error message
+    // The calling function can use this promise rejection to handle the error appropriately
+    return Promise.reject({ error: errorMessage });
+  }
+}
 
 
 /** login function */
@@ -247,5 +304,91 @@ export async function resetPassword({ username, password }) {
     // return a default error message 'Error resetting password.'
     // The calling function can use this promise rejection to handle the error appropriately
     return Promise.reject(error.response?.data?.error || 'Error resetting password.');
+  }
+}
+
+//** register franchise */
+export async function registerFranchise(
+
+  // Personal details
+  fullName,
+  phoneNumber,
+  gender,
+
+  // Address
+  first_Address,
+  second_Address,
+  landmark,
+  city,
+  state,
+  country,
+
+  // Means of identification
+  user_ID,
+  ID_Number,
+  date_Of_Birth,
+
+  // Next of kin
+  nextOfKin,
+  nextOfKin_Address,
+  nextOfKin_Number,
+
+  // Guarantor
+  guarantor,
+  guarantor_Number,
+  guarantor_ID,
+
+) {
+  try {
+    // Step 1: Send a POST request to create a user account using the provided credentials
+    const { status } = await axios.post(
+      'https://btca.afribook.world/account/registerFranchise',
+      {
+        // Personal details
+        fullName,
+        phoneNumber,
+        gender,
+
+        // Address
+        first_Address,
+        second_Address,
+        landmark,
+        city,
+        state,
+        country,
+
+        // Means of identification
+        user_ID,
+        ID_Number,
+        date_Of_Birth,
+
+        // Next of kin
+        nextOfKin,
+        nextOfKin_Address,
+        nextOfKin_Number,
+
+        // Guarantor
+        guarantor,
+        guarantor_Number,
+        guarantor_ID,
+      }
+    );
+
+    // Step 2: If the user account creation was successful (status 201),
+    // redirect to the verifyEmail page
+    if (status === 201) {
+      // Redirect to the verifyEmail page.
+      window.location.href = '/verifyEmail';
+    }
+
+    // There's no need to return any specific data since the frontend
+    // is only responsible for the redirection after the signup request.
+    return;
+  } catch (error) {
+    // Step 3: Handle the error or return a custom error message
+    console.error('AxiosError:', error.message);
+
+    // Step 4: Rethrow the error to be caught in the onSubmit function
+    throw error;
   }
 }

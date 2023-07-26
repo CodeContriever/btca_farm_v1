@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import avatar from '../assets/profile.png';
 import toast, { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
-import { registerValidation } from '../helper/validate';
+import * as yup from 'yup'; // Import yup for form validation
 import convertToBase64 from '../helper/convert';
 import { registerUser } from '../helper/helper'
 
@@ -13,71 +13,75 @@ import styles from '../styles/Username.module.css';
 
 
 const Signup = () => {
-  const navigate = useNavigate()
+
   const [file, setFile] = useState()
-
-  const formik = useFormik({
-    initialValues: {
-      fullName: 'John Doe',
-      phoneNumber: '34567',
-      email: 'johndoe@example.com',
-      username: 'example123',
-      password: 'admin@123'
-    },
-    validate: registerValidation,
-
-    validateOnBlur: false,
-
-    validateOnChange: false,
-
-    onSubmit: async values => {
-      const validationErrors = registerValidation(values);
-
-      if (Object.keys(validationErrors).length === 0) {
-        // No validation errors, proceed with form submission
-        values = await Object.assign(values, { profile: file || '' });
-
-        try {
-          const registerPromise = registerUser(values);
-
-          toast.promise(registerPromise, {
-            loading: 'Creating...',
-            success: (response) => {
-              // Handle the success response here if needed
-              console.log('Registration successful:', response);
-              navigate('/home'); // Navigate to the home page on successful registration
-              return <b>Register Successfully...!</b>;
-            },
-            error: (error) => {
-              // Handle the error here if needed
-              console.error('Registration failed:', error);
-              toast.error('Could not Register.');
-              return 'Could not Register.';
-            },
-          });
-
-          // No need to navigate here; we'll navigate on success (in the toast.success callback)
-        } catch (error) {
-          // Handle any unexpected errors
-          console.error('Unexpected error:', error);
-          toast.error('An unexpected error occurred. Please try again later.');
-        }
-      } else {
-        // There are validation errors, handle them appropriately (e.g., display error messages)
-        formik.setErrors(validationErrors);
-        toast.error('Please fix the errors in the form');
-      }
-    },
-
-  });
-
-
-
   /** formik doensn't support file upload so we need to create this handler */
   const onUpload = async e => {
     const base64 = await convertToBase64(e.target.files[0]);
     setFile(base64);
   }
+
+
+  const initialValues = {
+    fullName: 'Testing',
+    phoneNumber: '08142795139',
+    email: 'codecontriever@gmail.com',
+    username: 'Testing123',
+    password: 'Testing@123',
+    referredBy: 'Test'
+  };
+
+  // Define the validation schema using yup
+  const validationSchema = yup.object().shape({
+    fullName: yup.string().required('Full name is required'),
+    phoneNumber: yup.string().required('Phone number is required'),
+    email: yup.string().email('Invalid email').required('Email is required'),
+    username: yup.string().required('Username is required'),
+    password: yup.string().required('Password is required'),
+    referredBy: yup.string(),
+  });
+
+
+  const onSubmit = async (values) => {
+    try {
+      const { fullName, phoneNumber, email, password, username, referredBy } = values;
+      const registerPromise = registerUser(fullName, phoneNumber, email, password, username, referredBy);
+
+      toast.promise(registerPromise, {
+        loading: 'Creating...',
+        success: (response) => {
+          // Handle the success response here if needed
+          console.log('Registration successful:', response);
+          window.location.href = '/verifyEmail'; // Redirect to the verifyEmail page on successful registration
+          return <b>Register Successfully...!</b>;
+        },
+        error: (error) => {
+          // Handle the error here if needed
+          console.error('Registration failed:', error);
+          toast.error('Could not Register.');
+        },
+      });
+
+      // No need to navigate here; we'll navigate on success (in the toast.success callback)
+    } catch (error) {
+      // Handle any unexpected errors
+      console.error('Unexpected error:', error);
+      toast.error('An unexpected error occurred. Please try again later.');
+    }
+  };
+
+
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema, // Use the validation schema for form validation
+    onSubmit,
+  });
+
+
+
+
+
 
 
   return (
@@ -258,7 +262,7 @@ const Signup = () => {
                   </div>
 
                   {/* Reffered By */}
-                  {/* <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-1">
 
                     <label
                       for="referredBy"
@@ -275,7 +279,7 @@ const Signup = () => {
                       {...formik.getFieldProps('referredBy')}
                     />
 
-                  </div> */}
+                  </div>
 
                 </div>
 
@@ -285,12 +289,12 @@ const Signup = () => {
                   {/* Terms & Conditions checkbox*/}
                   <div class="flex items-center h-5">
 
-                    <input 
-                    id="terms" 
-                    aria-describedby="terms" 
-                    type="checkbox" 
-                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800 " 
-                    required="" 
+                    <input
+                      id="terms"
+                      aria-describedby="terms"
+                      type="checkbox"
+                      class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800 "
+                      required=""
                     />
 
                   </div>
@@ -326,7 +330,7 @@ const Signup = () => {
                     className='text-gray-500'
                   >
                     Already Registered?
-                    <Link className='text-red-500 ml-2' to="/">Login Now</Link>
+                    <Link className='text-red-500 ml-2' to="/signin">Login Now</Link>
                   </span>
 
                 </div>

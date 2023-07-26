@@ -81,7 +81,9 @@ const License = () => {
       className="">
 
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-200 py-4">
+      <header 
+            className='box-border w-[100%]  py-8 flex justify-center items-center bg-white  sticky top-0 left-0 right-0 z-[10001] border-b-2 border-gray-200 my-0 shadow-[inset 0 -1px #e9eaea]'
+      >
 
         {/* Wrapper */}
         <div className="container mx-auto px-4">

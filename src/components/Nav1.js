@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const Nav1 = () => {
 
@@ -122,20 +123,19 @@ const Nav1 = () => {
 
                 {/* Signin*/}
                 <li>
-                  <a href="/signin"
-                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
-                  >
-                    Signin
-                  </a>
+                  <Link to={'/signin'} className='lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white'>
+                    Log in
+                  </Link>
+
+
                 </li>
 
-                {/* signout*/}
+                {/* signup*/}
                 <li>
-                  <a href="/signup"
-                    class="lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white"
-                  >
+                  <Link to={'/signup'} className='lg:bg-transparent hover:text-[#A020F0] text-md lg:text-base dark:text-white'>
                     Get Started
-                  </a>
+                  </Link>
+
                 </li>
 
               </ul>
@@ -173,10 +173,14 @@ const Nav1 = () => {
         <div class="flex items-center lg:order-2">
 
           {/* Log in */}
-          <a href="/signin" class="hidden lg:flex text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
 
-          {/* Get started */}
-          <a href="/home" class="hidden lg:flex text-white bg-[#A020F0]  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get started</a>
+          <Link to={'/signin'} className='hidden lg:flex text-gray-800 font-medium  text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2'>
+            Log in
+          </Link>
+
+          <Link to={'/signup'} className='hidden lg:flex text-white bg-[#A020F0]  hover:bg-blue-800  font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2'>
+            Get Started
+          </Link>
 
 
         </div>

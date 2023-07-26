@@ -5,6 +5,8 @@ import { Routes, Route, } from "react-router-dom"
 
 import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
+import VerifyEmail from "./pages/VerifyEmail";
+import VerifyOTP from "./pages/VerifyOTP";
 import Signin from "./pages/Signin";
 import Reset from "./pages/Reset";
 import Recovery from "./pages/Recovery";
@@ -49,6 +51,8 @@ const App = () => {
         {/* </Route> */}
 
         <Route path='/signup' element={<Signup />} />
+        <Route path='/verify_email' element={<VerifyEmail />} />
+        <Route path='/verify_OTP' element={<VerifyOTP />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/reset' element={<Reset />} />
         <Route path='/recovery' element={<Recovery />} />

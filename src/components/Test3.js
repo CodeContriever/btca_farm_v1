@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import convertToBase64 from '../helper/convert';
 import avatar from '../assets/profile.png';
 import styles from '../styles/Username.module.css';
-import { useAuth } from '../utils/auth';
 
+import { useDispatch } from 'react-redux';
+import { setUser } from '../redux/UserSlice';
+// import { useUser } from '../utils/UserContext';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const { setUser } = useUser();
 
   const [file, setFile] = useState()
   /**  file upload handler */
@@ -19,11 +25,56 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const auth = useAuth()
-  const navigate = useNavigate()
-  const location = useLocation()
+  const handleSignin = async () => {
+    try {
+      const response = await axios.post('https://btca.afribook.world/account/loginWithPasswordAndEmail', {
+        email,
+        password,
+      });
 
-  const redirectPath = location.state?.path || '/'
+      console.log('API Response:', response.data);
+
+      if (response.status === 200) {
+        // Handle successful signin
+        const data = response.data;
+        console.log('Verify OTP:', data);
+
+        // Store the token in local storage
+        localStorage.setItem('token', data.accessToken);
+
+        if (data.success) {
+          // User email is registered, navigate to the homepage
+          console.log('Navigating to home...');
+          navigate('/home');
+          // Display a success toast (optional)
+          toast.success('Welcome');
+
+          // Set the user information in the context
+          setUser(data.user);
+
+          // Dispatch the action to set the user information in Redux store
+          dispatch(setUser(data.user));
+
+          // Now you can use the user object to display user details in your UI
+        } else {
+          // User email is not registered, navigate to the verify OTP page
+          console.log('Navigating to verify_OTP...');
+          navigate('/verify_OTP');
+          // Display a success toast (optional)
+          toast.success('Verify OTP');
+        }
+      } else {
+        // Handle signin error
+        toast.error('Incorrect inputs, please try again');
+      }
+    } catch (error) {
+      console.error('Error signing in:', error);
+      toast.error('Error signing in...');
+    }
+  };
+
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,44 +84,10 @@ const Login = () => {
       return;
     }
 
-    // Create a request body with the email and password data
-    const requestBody = {
-      email: email,
-      password: password
-    };
+    // toast.error(''); // Clear any previous error messages
 
-    try {
-      // Send the POST request to the server
-      const response = await fetch('https://btca.afribook.world/account/loginWithPasswordAndEmail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(requestBody)
-      });
-
-
-      // Check if the response indicates a successful login
-      if (response.ok) {
-        // Parse the response to JSON format
-        const data = await response.json();
-
-        if (data.success) {
-          auth.login(data.user);
-          navigate(redirectPath, { replace: true });
-        } else {
-          navigate('/verify_OTP');
-        }
-
-      } else {
-        // Handle the case when the login is not successful
-        toast.error('Login failed. Please check your credentials and try again.');
-      }
-    } catch (error) {
-      // Handle any errors that might occur during the fetch process
-      console.error('Error during login:', error);
-      toast.error('An error occurred during login. Please try again later.');
-    }
+    // Call the handleSignin function to initiate the signin process
+    handleSignin();
   };
 
   return (
@@ -139,9 +156,6 @@ const Login = () => {
                 {/* Login input fields */}
                 <div class="flex flex-col gap-8 mt-8">
 
-
-
-
                   {/* Email field */}
                   <div className="flex flex-col gap-1">
 
@@ -192,12 +206,12 @@ const Login = () => {
                   <button
                     type="submit"
                     className="w-[100%] flex justify-center items-center bg-[#A020F0] rounded-lg text-base px-4 py-2 lg:px-5 lg:py-2.5 text-white font-medium " >
-                    Signin
+                    Signup
                   </button>
 
                 </div>
 
-                {/* Forgot password */}
+                {/* Already register */}
                 <div
                   className="py-4 flex flex-row gap-8"
                 >

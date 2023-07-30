@@ -152,7 +152,6 @@ export async function verifyRegistrationOTP(email) {
 }
 
 
-
 /** get User details */
 export async function getUser({ username }) {
   try {
@@ -174,7 +173,35 @@ export async function getUser({ username }) {
 }
 
 
-/** login function */
+
+/** signin: email and password */
+export async function signin({ email, password }) {
+  try {
+    // Step 1: Check if the email is provided
+    if (email) {
+      // Step 2: If the email is provided, send a POST request to verify the password
+      const response = await axios.post('https://btca.afribook.world/account/loginWithPasswordAndEmail', { email, password });
+
+      // Step 3: Return the data from the response (likely containing verification information)
+      return response.data;
+    } else {
+      // Step 4: If the email is not provided, throw an error with a custom message
+      throw new Error('Email is required');
+    }
+  } catch (error) {
+    // Step 5: If there is an error during the request (e.g., email not provided or server error), handle the error
+
+    // Step 6: Extract the error message from the response, if available, using optional chaining (?.)
+    const errorMessage = error.response?.data?.error || 'Password verification failed';
+
+    // Step 7: Return a rejected promise with an object containing the error message
+    // The calling function can use this promise rejection to handle the error appropriately
+    return Promise.reject({ error: errorMessage });
+  }
+}
+
+
+/** signin: username and password  */
 export async function verifyPassword({ username, password }) {
   try {
     // Step 1: Check if the username is provided

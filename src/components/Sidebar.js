@@ -1,4 +1,10 @@
 import React from 'react'
+import { SiFormstack } from 'react-icons/si';
+import { IoKeyOutline } from 'react-icons/io5';
+import { MdApps } from 'react-icons/md';
+import { VscActivateBreakpoints } from 'react-icons/vsc';
+
+
 
 
 const Sidebar = () => {
@@ -34,9 +40,10 @@ const Sidebar = () => {
               href="/activation"
               class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+              <VscActivateBreakpoints class="w-6 h-6 text-gray-800 dark:text-white" />
+              {/* <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 2-8.4 7.05a1 1 0 0 1-1.2 0L1 2m18 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1m18 0v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2" />
-              </svg>
+              </svg> */}
 
               <span class="ml-3">Activation</span>
             </a>
@@ -48,10 +55,11 @@ const Sidebar = () => {
               href="/license"
               class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
+              <IoKeyOutline class="w-6 h-6 text-gray-800 dark:text-white" />
 
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+              {/* <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 10h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H17M1 10v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M1 10l2-9h12l2 9" />
-              </svg>
+              </svg> */}
 
               <span class="ml-3">License key</span>
             </a>
@@ -72,7 +80,6 @@ const Sidebar = () => {
           </li>
 
 
-
           {/* Withdrawal */}
           <li>
             <a
@@ -87,19 +94,23 @@ const Sidebar = () => {
             </a>
           </li>
 
+
           {/* Franchise */}
           <li>
             <a
               href="/franchise"
               class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+              <SiFormstack class="w-6 h-6 text-gray-800 dark:text-white" />
+
+              {/* <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6V2a.97.97 0 0 0-.933-1H5.828a2 2 0 0 0-1.414.586L1.586 4.414A2 2 0 0 0 1 5.828V18a.969.969 0 0 0 .933 1H14a1 1 0 0 0 1-1M6 1v4a1 1 0 0 1-1 1H1m6 6h9m-1.939-2.768L16.828 12l-2.767 2.768" />
-              </svg>
+              </svg> */}
 
               <span class="ml-3">Franchise</span>
             </a>
           </li>
+
 
           {/* Reseller */}
           <li>
@@ -121,9 +132,11 @@ const Sidebar = () => {
               href="/applications"
               class="flex items-center p-2 text-base font-medium text-gray-900 hover:text-[#A020F0] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+              <MdApps class="w-6 h-6 text-gray-800 dark:text-white" />
+
+              {/* <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 6V2a.97.97 0 0 0-.933-1H5.828a2 2 0 0 0-1.414.586L1.586 4.414A2 2 0 0 0 1 5.828V18a.969.969 0 0 0 .933 1H14a1 1 0 0 0 1-1M6 1v4a1 1 0 0 1-1 1H1m6 6h9m-1.939-2.768L16.828 12l-2.767 2.768" />
-              </svg>
+              </svg> */}
 
               <span class="ml-3">Applications</span>
             </a>

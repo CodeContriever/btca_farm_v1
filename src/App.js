@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, } from "react-router-dom"
 
-// import ProtectedRoutes from './utils/ProtectedRoutes'
 
 import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
@@ -12,6 +11,7 @@ import Reset from "./pages/Reset";
 import Recovery from "./pages/Recovery";
 import NotFoundPage from "./pages/NotFoundPage";
 import HomePage from "./pages/HomePage";
+import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import Activation from "./pages/Activation";
 import License from "./pages/License";
@@ -22,47 +22,48 @@ import Franchise from "./pages/Franchise";
 import Reseller from "./pages/Reseller";
 import Applications from "./pages/Applications";
 
-
-
-
-
+import { AuthProvider } from './utils/auth';
+import RequireAuth from './utils/RequireAuth';
 
 
 
 const App = () => {
-
-
   return (
-    <div className="">
-      <Routes>
-        <Route exact path='/' element={<LandingPage />} />
+    <div>
+      <AuthProvider >
 
-        {/* <Route element={<ProtectedRoutes />}> */}
-        <Route element={<HomePage />} path="/home" />
-        <Route element={<Dashboard />} path="/dashboard" />
-        <Route path='/activation' element={<Activation />} />
-        <Route path='/license' element={<License />} />
-        <Route path='/support' element={<Support />} />
-        <Route path='/wallet' element={<Wallet />} />
-        <Route path='/withdrawal' element={<Withdrawal />} />
-        <Route path='/franchise' element={<Franchise />} />
-        <Route path='/reseller' element={<Reseller />} />
-        <Route path='/applications' element={<Applications />} />
-        {/* </Route> */}
+        <Routes>
+          <Route exact path='/' element={< LandingPage />} />
+          < Route path='/signup' element={< Signup />} />
+          < Route path='/verify_email' element={< VerifyEmail />} />
+          < Route path='/verify_OTP' element={< VerifyOTP />} />
+          < Route path='/signin' element={< Signin />} />
+          < Route path='/reset' element={< Reset />} />
+          < Route path='/recovery' element={< Recovery />} />
+          < Route path="*" element={< NotFoundPage />} />
 
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/verify_email' element={<VerifyEmail />} />
-        <Route path='/verify_OTP' element={<VerifyOTP />} />
-        <Route path='/signin' element={<Signin />} />
-        <Route path='/reset' element={<Reset />} />
-        <Route path='/recovery' element={<Recovery />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+
+          {/* <Route element={<HomePage />} path="/home" /> */}
+          < Route element={<RequireAuth>< HomePage /></RequireAuth>} path="/home" />
+          < Route element={<RequireAuth>< Profile /></RequireAuth>} path="/profile" />
+          <Route element={<Dashboard />} path="/dashboard" />
+          < Route path='/activation' element={< Activation />} />
+          < Route path='/license' element={< License />} />
+          < Route path='/support' element={< Support />} />
+          < Route path='/wallet' element={< Wallet />} />
+          < Route path='/withdrawal' element={< Withdrawal />} />
+          < Route path='/franchise' element={< Franchise />} />
+          < Route path='/reseller' element={< Reseller />} />
+          < Route path='/applications' element={< Applications />} />
+
+
+        </Routes>
+
+      </AuthProvider>
+
     </div>
+
   )
 }
 
 export default App
-
-
-

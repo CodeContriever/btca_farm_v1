@@ -1,18 +1,26 @@
 import React from "react";
 import { useState, } from 'react';
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom'
 import avatar from '../assets/profile.png';
 import toast, { Toaster } from 'react-hot-toast';
-import { useFormik } from 'formik';
-import * as yup from 'yup'; // Import yup for form validation
 import convertToBase64 from '../helper/convert';
-import { registerUser } from '../helper/helper'
 
 import styles from '../styles/Username.module.css';
 
 
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const [fullName, setFullName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [referredBy, setReferredBy] = useState('');
+  const [checkbox, setCheckbox] = useState(false);
+  // const [error, setError] = useState('');
+
 
   const [file, setFile] = useState()
   /** formik doensn't support file upload so we need to create this handler */
@@ -21,62 +29,57 @@ const Signup = () => {
     setFile(base64);
   }
 
+  // Display loading toast
+  // const loadingToast = toast.loading('Registering...');
 
-  const initialValues = {
-    fullName: 'Testing',
-    phoneNumber: '08142795139',
-    email: 'codecontriever@gmail.com',
-    username: 'Testing123',
-    password: 'Testing@123',
-    referredBy: 'Test'
-  };
-
-  // Define the validation schema using yup
-  const validationSchema = yup.object().shape({
-    fullName: yup.string().required('Full name is required'),
-    phoneNumber: yup.string().required('Phone number is required'),
-    email: yup.string().email('Invalid email').required('Email is required'),
-    username: yup.string().required('Username is required'),
-    password: yup.string().required('Password is required'),
-    referredBy: yup.string(),
-  });
-
-
-  const onSubmit = async (values) => {
+  const handleRegister = async () => {
     try {
-      const { fullName, phoneNumber, email, password, username, referredBy } = values;
-      const registerPromise = registerUser(fullName, phoneNumber, email, password, username, referredBy);
-
-      toast.promise(registerPromise, {
-        loading: 'Creating...',
-        success: (response) => {
-          // Handle the success response here if needed
-          console.log('Registration successful:', response);
-          window.location.href = '/verifyEmail'; // Redirect to the verifyEmail page on successful registration
-          return <b>Register Successfully...!</b>;
-        },
-        error: (error) => {
-          // Handle the error here if needed
-          console.error('Registration failed:', error);
-          toast.error('Could not Register.');
-        },
+      const response = await axios.post('https://btca.afribook.world/account/createUserAccount', {
+        fullName,
+        phoneNumber,
+        email,
+        username,
+        password,
+        referredBy,
+        checkbox
       });
 
-      // No need to navigate here; we'll navigate on success (in the toast.success callback)
+      if (response.status === 200) {
+        // Handle successful registration
+        const data = response.data;
+        console.log('User registered successfully:', data);
+
+        // Redirect to the login page after successful registration
+        navigate('/verify_email');
+        toast.success('Verify Email');
+      } else {
+        // Handle registration error
+        // toast.error('An error occurred during registration. Please try again later.');
+      }
     } catch (error) {
-      // Handle any unexpected errors
-      console.error('Unexpected error:', error);
-      toast.error('An unexpected error occurred. Please try again later.');
+      console.error('Error registering user:', error);
+      toast.error('An error occurred, please try again later.');
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!fullName || !phoneNumber || !email || !password || !username || !checkbox) {
+      toast.error('Please fill in all the required fields correctly');
+      return;
+    }
 
 
-  const formik = useFormik({
-    initialValues,
-    validationSchema, // Use the validation schema for form validation
-    onSubmit,
-  });
+    // Call the handleRegister function to initiate the registration process
+    handleRegister();
+  };
+
+
+
+
+
+
 
 
 
@@ -122,7 +125,7 @@ const Signup = () => {
               {/* Form */}
               <form
                 className='py-1'
-                onSubmit={formik.handleSubmit}
+                onSubmit={handleSubmit}
               >
 
                 {/* Profile avatar */}
@@ -160,9 +163,11 @@ const Signup = () => {
                       type="text"
                       name="fullname"
                       id="fullname"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Boniee Ben"
                       required
-                      {...formik.getFieldProps('fullName')}
+
                     />
                   </div>
 
@@ -178,9 +183,11 @@ const Signup = () => {
                       type="tel"
                       name="phonenumber"
                       id="phonenumber"
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+234"
                       required
-                      {...formik.getFieldProps('phoneNumber')}
+
                     />
 
                   </div>
@@ -197,9 +204,10 @@ const Signup = () => {
                       type="email"
                       name="email"
                       id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Boniee Ben"
                       required
-                      {...formik.getFieldProps('email')}
                     />
                   </div>
 
@@ -215,9 +223,9 @@ const Signup = () => {
                       type="text"
                       name="username"
                       id="username"
+                      value={username} onChange={(e) => setUsername(e.target.value)}
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Boniee123"
                       required
-                      {...formik.getFieldProps('username')}
                     />
                   </div>
 
@@ -236,9 +244,10 @@ const Signup = () => {
                       type="password"
                       name="password"
                       id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required
-                      {...formik.getFieldProps('password')}
 
                     />
                   </div>
@@ -253,9 +262,10 @@ const Signup = () => {
 
                     <input
                       type="confirm-password"
-                      name="confirm-password" id="confirm-password" placeholder="••••••••"
+                      name="confirm-password" id="confirm-password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)} placeholder="••••••••"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required
-                      {...formik.getFieldProps('password')}
 
                     />
 
@@ -275,8 +285,9 @@ const Signup = () => {
                       type="text"
                       name="referredBy"
                       id="referredBy"
+                      value={referredBy}
+                      onChange={(e) => setReferredBy(e.target.value)}
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="4234769"
-                      {...formik.getFieldProps('referredBy')}
                     />
 
                   </div>
@@ -293,8 +304,10 @@ const Signup = () => {
                       id="terms"
                       aria-describedby="terms"
                       type="checkbox"
+                      value={checkbox}
+                      onChange={(e) => setCheckbox(e.target.value)}
                       class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800 "
-                      required=""
+                      required
                     />
 
                   </div>

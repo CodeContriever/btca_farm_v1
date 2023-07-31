@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Nav3 from "../components/Nav3";
-import Footer from "../components/Footer";
+import Footer2 from "../components/Footer2";
 
 import { Input } from '@chakra-ui/react'
 
@@ -119,7 +119,7 @@ const Activation = () => {
           className="container mx-auto px-4"
         >
 
-          <Footer />
+          <Footer2 />
 
         </div>
 

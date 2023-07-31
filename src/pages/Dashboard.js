@@ -2,8 +2,9 @@ import React from "react";
 
 import Sidebar from "../components/Sidebar";
 import Nav3 from "../components/Nav3";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import DashboardMain from "../components/DashboardMain"
+import Footer2 from "../components/Footer2";
 
 
 
@@ -16,7 +17,7 @@ const Dashboard = () => {
 
       {/* Header */}
       <header
-           className='box-border w-[100%]  py-8 flex justify-center items-center bg-white  sticky top-0 left-0 right-0 z-[10001] border-b-2 border-gray-200 my-0 shadow-[inset 0 -1px #e9eaea]'
+        className='box-border w-[100%]  py-8 flex justify-center items-center bg-white  sticky top-0 left-0 right-0 z-[10001] border-b-2 border-gray-200 my-0 shadow-[inset 0 -1px #e9eaea]'
       >
 
         {/* Wrapper */}
@@ -44,7 +45,7 @@ const Dashboard = () => {
 
             <div className="col-span-3 lg:col-span-2 w-[100%]">
 
-            <DashboardMain />
+              <DashboardMain />
 
             </div>
 
@@ -66,7 +67,8 @@ const Dashboard = () => {
           className="container mx-auto px-4"
         >
 
-          <Footer />
+          {/* <Footer /> */}
+          <Footer2 />
 
         </div>
 

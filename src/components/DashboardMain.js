@@ -2,16 +2,17 @@ import React from 'react'
 import { useState } from 'react';
 import Wrapper from './Wrapper';
 
-
-import { Box, } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
-
-
-import { Card, CardHeader, CardBody, } from '@chakra-ui/react';
 import ShareLink from './dashboard/ShareLink';
 import Dashbar from './dashboard/Dashbar';
 import FarmSpeed from './dashboard/FarmSpeed';
 import Gauge from './dashboard/Gauge';
+
+
+import { Box, } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody, } from '@chakra-ui/react';
+
+import { AiOutlineStar } from 'react-icons/ai';
 
 const DashboardMain = () => {
 
@@ -150,160 +151,147 @@ const DashboardMain = () => {
           <div className="">
 
             {/* First grid box */}
-            <div class="grid grid-cols-1  lg:grid-cols-3 gap-8 mb-20">
+            <div className="grid grid-cols-1  lg:grid-cols-3 gap-8 mb-20">
 
-              {/* 1 */}
-              <div class="border-2 border-dashed rounded-lg border-gray-300 px-2 py-4">
+              {/* Mining factor */}
+              <div
+                className="bg-gray-800 px-4 py-8 text-gray-900  shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+              >
 
+                {/* Heading */}
+                <div className='flex flex-row justify-between'>
+
+                  <h2 className='text-white font-medium'>Mining Factor</h2>
+
+                  <div className='bg-green-700 text-white font-medium px-1.5 py-1'>
+                    40.0 %
+                  </div>
+
+                </div>
+
+
+                {/* BTCA, logo and Available max load*/}
                 <div
-                  class=" px-4 py-8 text-gray-900 bg-gray-300 border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  className="flex flex-row justify-between mt-8"
                 >
 
-                  {/* Heading */}
-                  <h2>Mining Factor</h2>
-
-
-                  {/* Logo, refresh & BTCA*/}
-                  <div
-                    className="flex flex-row justify-between items-center mt-8"
-                  >
-                    <div>
-                      <h3
-                        className="box-border mb-0 mt-0 text-gray-500 font-inter text-base lg:text-xl font-medium leading-6 break-words whitespace-nowrap"
-                      >
-                        BTCA
-                      </h3>
-                      <p>Max Load For Mining</p>
-                    </div>
-
-                    {/* Logo & refresh img */}
-                    <div className='flex flex-row items-center justify-center gap-4'>
-                      <img
-                        className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
-                        alt="BTCA logo"
-                        src="/logo.png"
-                      />
-
-                    </div>
-
-
+                  {/* BTCA and Available max load */}
+                  <div className='flex flex-col gap-1'>
+                    <h3
+                      className=" text-gray-500 font-inter text-base  font-medium">
+                      BTCA
+                    </h3>
+                    <p className='text-white font-medium'>
+                      Max Load For Mining
+                    </p>
 
                   </div>
 
-                  <div className='mt-8 flex justify-center items-center w-[100%]'>
-                    <button
-                      type='submit'
-                      className="w-full flex justify-center items-center bg-[#A020F0]  rounded-lg text-base px-4 py-2 text-white font-medium font-Inter" >
-                      Payout
-                    </button>
-
+                  {/* logo */}
+                  <div
+                  >
+                    <img
+                      className="h-12 w-12"
+                      alt="BTCA logo"
+                      src="/logo.png"
+                    />
                   </div>
 
                 </div>
 
               </div>
 
-              {/* 2 */}
-              <div class="border-2 border-dashed rounded-lg border-gray-300 px-2 py-4">
+              {/* My Farm*/}
+              <div
+                className="bg-gray-800 px-4 py-8 text-gray-900  shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+              >
 
+                {/* Heading */}
+                <div className='flex flex-row justify-between'>
+
+                  <h2 className='text-white font-medium'>My Farm</h2>
+
+                  <div className='bg-green-700 text-white font-medium px-1.5 py-1'>
+                    Inactive
+                  </div>
+
+                </div>
+
+                {/* BTCA, logo and Available max load*/}
                 <div
-                  class=" px-4 py-16 bg-white text-gray-900  border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  className="flex flex-row justify-between mt-8"
                 >
 
-                  {/* Heading */}
-                  <h2>BTCA Upgrade Balance</h2>
-
-                  {/* Logo, refresh & BTCA*/}
-                  <div
-                    className="flex flex-row justify-between items-center mt-8"
-                  >
-
-                    {/* Logo & refresh img */}
-                    <div className='flex flex-row items-center justify-center gap-4'>
-                      <img
-                        className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
-                        alt="BTCA logo"
-                        src="/logo.png"
-                      />
-
-                      <svg
-                        className="plc-svgIcon resIndicatorPrice__icon"
-                        height="24"
-                        width="24"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{ boxSizing: "border-box", color: "#aaabad" }}
-                      >
-                        <path
-                          d="M21.332 9.628l.001-6.093-2.42 2.42-.271-.271A9.103 9.103 0 0012.162 3C7.11 3 3 7.11 3 12.163c0 5.052 4.11 9.163 9.163 9.163 5.052 0 9.163-4.11 9.163-9.163h-1.774c0 4.074-3.315 7.39-7.39 7.39-4.074 0-7.389-3.316-7.389-7.39 0-4.075 3.315-7.39 7.39-7.39 1.974 0 3.83.77 5.225 2.165l.271.271-2.42 2.42h6.093z"
-                          style={{ boxSizing: "border-box" }}
-                        />
-                      </svg>
-
-                    </div>
-
-                    {/* USDT */}
-                    <p
-                      className="box-border mb-0 mt-0 text-gray-500 font-inter text-base lg:text-xl font-medium leading-6 break-words whitespace-nowrap"
-                    >
+                  {/* BTCA and Available max load */}
+                  <div className='flex flex-col gap-1'>
+                    <h3
+                      className=" text-gray-500 font-inter text-base  font-medium">
                       BTCA
+                    </h3>
+                    <p className='text-white font-medium'>
+                      Available Max Load
                     </p>
 
+                  </div>
+
+                  {/* logo */}
+                  <div
+                  >
+                    <img
+                      className="h-12 w-12"
+                      alt="BTCA logo"
+                      src="/logo.png"
+                    />
                   </div>
 
                 </div>
 
               </div>
 
-              {/* 3 */}
-              <div class="border-2 border-dashed rounded-lg border-gray-300 px-2 py-4">
+              {/* Total Farmed amount */}
+              <div
+                class="bg-gray-800 px-4 py-8 text-gray-900  shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+              >
 
+                {/* Heading */}
+                <h2 className='text-white font-medium text-base'>Total Farmed Amount</h2>
+
+                {/* Logo, refresh & BTCA*/}
                 <div
-                  class=" px-4 py-16 text-gray-900 bg-gray-300 border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  className="flex flex-row justify-between items-center mt-8"
                 >
 
-                  {/* Heading */}
-                  <h2>Total Farmed Amount</h2>
+                  {/* Logo & refresh img */}
+                  <div className='flex flex-row items-center justify-center gap-4'>
+                    <img
+                      className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
+                      alt="BTCA logo"
+                      src="/logo.png"
+                    />
 
-                  {/* Logo, refresh & BTCA*/}
-                  <div
-                    className="flex flex-row justify-between items-center mt-8"
-                  >
-
-                    {/* Logo & refresh img */}
-                    <div className='flex flex-row items-center justify-center gap-4'>
-                      <img
-                        className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
-                        alt="BTCA logo"
-                        src="/logo.png"
-                      />
-
-                      <svg
-                        className="plc-svgIcon resIndicatorPrice__icon"
-                        height="24"
-                        width="24"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{ boxSizing: "border-box", color: "#aaabad" }}
-                      >
-                        <path
-                          d="M21.332 9.628l.001-6.093-2.42 2.42-.271-.271A9.103 9.103 0 0012.162 3C7.11 3 3 7.11 3 12.163c0 5.052 4.11 9.163 9.163 9.163 5.052 0 9.163-4.11 9.163-9.163h-1.774c0 4.074-3.315 7.39-7.39 7.39-4.074 0-7.389-3.316-7.389-7.39 0-4.075 3.315-7.39 7.39-7.39 1.974 0 3.83.77 5.225 2.165l.271.271-2.42 2.42h6.093z"
-                          style={{ boxSizing: "border-box" }}
-                        />
-                      </svg>
-
-                    </div>
-
-                    {/* USDT */}
-                    <p
-                      className="box-border mb-0 mt-0 text-gray-500 font-inter text-base lg:text-xl font-medium leading-6 break-words whitespace-nowrap"
+                    <svg
+                      className="plc-svgIcon resIndicatorPrice__icon"
+                      height="24"
+                      width="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ boxSizing: "border-box", color: "#aaabad" }}
                     >
-                      BTCA
-                    </p>
+                      <path
+                        d="M21.332 9.628l.001-6.093-2.42 2.42-.271-.271A9.103 9.103 0 0012.162 3C7.11 3 3 7.11 3 12.163c0 5.052 4.11 9.163 9.163 9.163 5.052 0 9.163-4.11 9.163-9.163h-1.774c0 4.074-3.315 7.39-7.39 7.39-4.074 0-7.389-3.316-7.389-7.39 0-4.075 3.315-7.39 7.39-7.39 1.974 0 3.83.77 5.225 2.165l.271.271-2.42 2.42h6.093z"
+                        style={{ boxSizing: "border-box" }}
+                      />
+                    </svg>
 
                   </div>
+
+                  {/* USDT */}
+                  <p
+                    className=" text-gray-500 font-inter text-base  font-medium "
+                  >
+                    BTCA
+                  </p>
 
                 </div>
 
@@ -395,117 +383,107 @@ const DashboardMain = () => {
 
             {/* Second Grid box */}
             {/* Market & Community price */}
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-20">
 
-              {/* 1 */}
+              {/* Market price */}
               <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 p-4"
+                className=" px-4 py-4 text-gray-900 bg-gray-700 border dark:border-gray-600 dark:bg-gray-800 dark:text-white"
               >
 
+                {/* Heading */}
+                <h2 className='text-white font-medium text-base'>Market Price</h2>
+
+                {/* Logo, refresh and USDT */}
                 <div
-                  class=" px-4 py-4 text-gray-900 bg-white border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  className="flex flex-row justify-between"
                 >
 
-                  {/* Heading */}
-                  <h2>Market Price</h2>
+                  {/* Logo & refresh img */}
+                  <div className='flex flex-row items-center justify-center gap-4'>
+                    <img
+                      className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
+                      alt="BTCA logo"
+                      src="/logo.png"
+                    />
 
-                  {/* Logo, refresh and USDT */}
-                  <div
-                    className="flex flex-row justify-between"
-                  >
-
-                    {/* Logo & refresh img */}
-                    <div className='flex flex-row items-center justify-center gap-4'>
-                      <img
-                        className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
-                        alt="BTCA logo"
-                        src="/logo.png"
-                      />
-
-                      <svg
-                        className="plc-svgIcon resIndicatorPrice__icon"
-                        height="24"
-                        width="24"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{ boxSizing: "border-box", color: "#aaabad" }}
-                      >
-                        <path
-                          d="M21.332 9.628l.001-6.093-2.42 2.42-.271-.271A9.103 9.103 0 0012.162 3C7.11 3 3 7.11 3 12.163c0 5.052 4.11 9.163 9.163 9.163 5.052 0 9.163-4.11 9.163-9.163h-1.774c0 4.074-3.315 7.39-7.39 7.39-4.074 0-7.389-3.316-7.389-7.39 0-4.075 3.315-7.39 7.39-7.39 1.974 0 3.83.77 5.225 2.165l.271.271-2.42 2.42h6.093z"
-                          style={{ boxSizing: "border-box" }}
-                        />
-                      </svg>
-
-                    </div>
-
-                    {/* USDT */}
-                    <p
-                      className="box-border mb-0 mt-0 text-gray-500 font-inter text-base lg:text-xl font-medium leading-6 break-words whitespace-nowrap"
+                    <svg
+                      className="plc-svgIcon resIndicatorPrice__icon"
+                      height="24"
+                      width="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ boxSizing: "border-box", color: "#aaabad" }}
                     >
-                      USDT
-                    </p>
+                      <path
+                        d="M21.332 9.628l.001-6.093-2.42 2.42-.271-.271A9.103 9.103 0 0012.162 3C7.11 3 3 7.11 3 12.163c0 5.052 4.11 9.163 9.163 9.163 5.052 0 9.163-4.11 9.163-9.163h-1.774c0 4.074-3.315 7.39-7.39 7.39-4.074 0-7.389-3.316-7.389-7.39 0-4.075 3.315-7.39 7.39-7.39 1.974 0 3.83.77 5.225 2.165l.271.271-2.42 2.42h6.093z"
+                        style={{ boxSizing: "border-box" }}
+                      />
+                    </svg>
 
                   </div>
+
+                  {/* USDT */}
+                  <p
+                    className="box-border mb-0 mt-0 text-gray-500 font-inter text-base lg:text-xl font-medium leading-6 break-words whitespace-nowrap"
+                  >
+                    USDT
+                  </p>
 
                 </div>
 
               </div>
 
-              {/* 2 */}
+
+              {/* Community Price*/}
               <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 p-4"
+                className=" px-4 py-4 text-gray-900 bg-gray-700 border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
               >
 
+                {/* Heading */}
+                <h2 className='text-base font-medium text-white'>Community Price</h2>
+
+                {/* Logo, refresh and USDT */}
                 <div
-                  class=" px-4 py-4 text-gray-900 bg-white border shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  className="flex flex-row justify-between"
                 >
 
-                  {/* Heading */}
-                  <h2>Community Price</h2>
+                  {/* Logo & refresh img */}
+                  <div className='flex flex-row items-center justify-center gap-4'>
+                    <img
+                      className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
+                      alt="BTCA logo"
+                      src="/logo.png"
+                    />
 
-                  {/* Logo, refresh and USDT */}
-                  <div
-                    className="flex flex-row justify-between"
-                  >
-
-                    {/* Logo & refresh img */}
-                    <div className='flex flex-row items-center justify-center gap-4'>
-                      <img
-                        className="border-0 box-content max-w-full align-middle m-1.5 h-6 w-6"
-                        alt="BTCA logo"
-                        src="/logo.png"
-                      />
-
-                      <svg
-                        className="plc-svgIcon resIndicatorPrice__icon"
-                        height="24"
-                        width="24"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{ boxSizing: "border-box", color: "#aaabad" }}
-                      >
-                        <path
-                          d="M21.332 9.628l.001-6.093-2.42 2.42-.271-.271A9.103 9.103 0 0012.162 3C7.11 3 3 7.11 3 12.163c0 5.052 4.11 9.163 9.163 9.163 5.052 0 9.163-4.11 9.163-9.163h-1.774c0 4.074-3.315 7.39-7.39 7.39-4.074 0-7.389-3.316-7.389-7.39 0-4.075 3.315-7.39 7.39-7.39 1.974 0 3.83.77 5.225 2.165l.271.271-2.42 2.42h6.093z"
-                          style={{ boxSizing: "border-box" }}
-                        />
-                      </svg>
-
-                    </div>
-
-                    {/* USDT */}
-                    <p
-                      className="box-border mb-0 mt-0 text-gray-500 font-inter text-base lg:text-xl font-medium leading-6 break-words whitespace-nowrap"
+                    <svg
+                      className="plc-svgIcon resIndicatorPrice__icon"
+                      height="24"
+                      width="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ boxSizing: "border-box", color: "#aaabad" }}
                     >
-                      USDT
-                    </p>
+                      <path
+                        d="M21.332 9.628l.001-6.093-2.42 2.42-.271-.271A9.103 9.103 0 0012.162 3C7.11 3 3 7.11 3 12.163c0 5.052 4.11 9.163 9.163 9.163 5.052 0 9.163-4.11 9.163-9.163h-1.774c0 4.074-3.315 7.39-7.39 7.39-4.074 0-7.389-3.316-7.389-7.39 0-4.075 3.315-7.39 7.39-7.39 1.974 0 3.83.77 5.225 2.165l.271.271-2.42 2.42h6.093z"
+                        style={{ boxSizing: "border-box" }}
+                      />
+                    </svg>
 
                   </div>
+
+                  {/* USDT */}
+                  <p
+                    className="box-border mb-0 mt-0 text-gray-500 font-inter text-base lg:text-xl font-medium leading-6 break-words whitespace-nowrap"
+                  >
+                    USDT
+                  </p>
 
                 </div>
 
               </div>
+
 
             </div>
 
@@ -848,7 +826,7 @@ const DashboardMain = () => {
             {/* ######## */}
             {/* Farm speed */}
             <div
-              class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 mb-20"
+              class=" border-2 rounded-lg border-gray-300 dark:border-gray-600 mb-20"
             >
 
               <FarmSpeed />
@@ -858,15 +836,11 @@ const DashboardMain = () => {
 
             {/* Third Grid box */}
             {/* Farm Packages  */}
-            <Wrapper className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <Wrapper className="grid grid-cols-1 lg:grid-cols-3 gap-4 px-4">
 
-
-              {/* <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 p-0 lg:p-4"
-              > */}
-
-              {/* Packages  card */}
+              {/* Package 1 */}
               <div className='bg-[#A020F0] rounded-lg overflow-hidden py-4 px-2  text-center text-white space-y-8'>
+
                 {/* card Header */}
                 <div>
                   <h2 className='font-bold text-base uppercase'>STARTER</h2>
@@ -923,17 +897,160 @@ const DashboardMain = () => {
 
 
                 {/* card Footer */}
-                <div>
+                <div className='flex justify-center'>
+
                   <button
-                    className='px-20 py-2 font-medium text-base outline otline-1 outline-white'
+                    className='flex flex-col items-center justify-center gap-2 px-20 py-1 font-medium text-base outline otline-1 outline-white'
                   >
+                    <AiOutlineStar />
                     Activate
                   </button>
                 </div>
 
               </div>
 
-              {/* </div> */}
+              {/* Package 2 */}
+              <div className='bg-[#A020F0] rounded-lg overflow-hidden py-4 px-2  text-center text-white space-y-8'>
+
+                {/* card Header */}
+                <div>
+                  <h2 className='font-bold text-base uppercase'>Light</h2>
+                </div>
+
+                <hr />
+
+                {/* card Body */}
+                <div
+                  className='space-y-4'
+                >
+
+                  {/* Up to */}
+                  <div>
+                    <h3 className='font-medium text-base'>Up to 0.125BTCA</h3>
+                    <p className='font-medium text-base'>Freezing MAX Load</p>
+                  </div>
+
+                  <hr />
+
+                  {/* Mining reward */}
+                  <div>
+                    <h3 className='font-medium text-base'>0.5BTCA</h3>
+                    <p className='font-medium text-base'>Mining Reward per month</p>
+                  </div>
+
+                  <hr />
+
+                  {/*Expected Mining */}
+                  <div>
+                    <h3 className='font-medium text-base'>4.88BTCA</h3>
+                    <p className='font-medium text-base'>Expected Mining</p>
+                  </div>
+
+                  <hr />
+
+                  {/*Validity */}
+                  <div>
+                    <h3 className='font-medium text-base'>1 Year</h3>
+                    <p className='font-medium text-base'>Validity</p>
+                  </div>
+
+                  <hr />
+
+                  {/*Unfreezing Term */}
+                  <div>
+                    <h3 className='font-medium text-base'>$10</h3>
+                    <p className='font-medium text-base'>Unfreezing Term </p>
+                  </div>
+
+                  <hr />
+
+                </div>
+
+
+                {/* card Footer */}
+                <div className='flex justify-center'>
+
+                  <button
+                    className='flex flex-col items-center justify-center gap-2 px-20 py-1 font-medium text-base outline otline-1 outline-white'
+                  >
+                    <AiOutlineStar />
+                    Activate
+                  </button>
+                </div>
+
+              </div>
+
+              {/* Package 3 */}
+              <div className='bg-[#A020F0] rounded-lg overflow-hidden py-4 px-2  text-center text-white space-y-8'>
+
+                {/* card Header */}
+                <div>
+                  <h2 className='font-bold text-base uppercase'>Jade</h2>
+                </div>
+
+                <hr />
+
+                {/* card Body */}
+                <div
+                  className='space-y-4'
+                >
+
+                  {/* Up to */}
+                  <div>
+                    <h3 className='font-medium text-base'>Up to 0.125BTCA</h3>
+                    <p className='font-medium text-base'>Freezing MAX Load</p>
+                  </div>
+
+                  <hr />
+
+                  {/* Mining reward */}
+                  <div>
+                    <h3 className='font-medium text-base'>0.5BTCA</h3>
+                    <p className='font-medium text-base'>Mining Reward per month</p>
+                  </div>
+
+                  <hr />
+
+                  {/*Expected Mining */}
+                  <div>
+                    <h3 className='font-medium text-base'>4.88BTCA</h3>
+                    <p className='font-medium text-base'>Expected Mining</p>
+                  </div>
+
+                  <hr />
+
+                  {/*Validity */}
+                  <div>
+                    <h3 className='font-medium text-base'>1 Year</h3>
+                    <p className='font-medium text-base'>Validity</p>
+                  </div>
+
+                  <hr />
+
+                  {/*Unfreezing Term */}
+                  <div>
+                    <h3 className='font-medium text-base'>$10</h3>
+                    <p className='font-medium text-base'>Unfreezing Term </p>
+                  </div>
+
+                  <hr />
+
+                </div>
+
+
+                {/* card Footer */}
+                <div className='flex justify-center'>
+
+                  <button
+                    className='flex flex-col items-center justify-center gap-2 px-20 py-1 font-medium text-base outline otline-1 outline-white'
+                  >
+                    <AiOutlineStar />
+                    Activate
+                  </button>
+                </div>
+
+              </div>
+
 
             </Wrapper>
 

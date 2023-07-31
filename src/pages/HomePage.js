@@ -1,6 +1,6 @@
 import React from "react";
 import Nav2 from "../components/Nav2";
-import Footer from "../components/Footer"
+import Footer2 from "../components/Footer2"
 
 
 
@@ -208,7 +208,7 @@ const HomePage = () => {
           className="container mx-auto px-4"
         >
 
-          <Footer />
+          <Footer2 />
 
         </div>
 

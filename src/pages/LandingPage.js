@@ -1,6 +1,6 @@
 import React from "react";
 import Nav1 from "../components/Nav1";
-import Footer from "../components/Footer"
+import Footer2 from "../components/Footer2"
 
 
 
@@ -205,7 +205,7 @@ const LandingPage = () => {
           className="container mx-auto px-4"
         >
 
-          <Footer />
+          <Footer2 />
 
         </div>
 

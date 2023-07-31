@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Sidebar from "../components/Sidebar";
 import Nav3 from "../components/Nav3";
-import Footer from "../components/Footer";
+import Footer2 from "../components/Footer2";
 
 import toast from 'react-hot-toast';
 import { useFormik } from 'formik';
@@ -805,7 +805,7 @@ const Franchise = () => {
           className="container mx-auto px-4"
         >
 
-          <Footer />
+          <Footer2 />
 
         </div>
 

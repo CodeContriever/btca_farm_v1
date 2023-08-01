@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
 import avatar from '../assets/profile.png';
 import toast, { Toaster } from 'react-hot-toast';
@@ -12,7 +12,8 @@ import styles from '../styles/Username.module.css';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [fullName, setFullName] = useState('');
+
+  const [fullname, setFullname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
@@ -33,29 +34,43 @@ const Signup = () => {
   // const loadingToast = toast.loading('Registering...');
 
   const handleRegister = async () => {
+    const requestBody = {
+      fullname,
+      phoneNumber,
+      email,
+      username,
+      password,
+      referredBy,
+      // checkbox
+    }
+
     try {
-      const response = await axios.post('https://btca.afribook.world/account/createUserAccount', {
-        fullName,
-        phoneNumber,
-        email,
-        username,
-        password,
-        referredBy,
-        checkbox
+      // Send the POST request to the server
+      const response = await fetch('https://btca.afribook.world/account/createUserAccount', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
       });
 
-      if (response.status === 200) {
+
+
+      if (response.ok) {
         // Handle successful registration
-        const data = response.data;
+        const data = await response.json();
         console.log('User registered successfully:', data);
 
-        // Redirect to the login page after successful registration
-        navigate('/verify_email');
-        toast.success('Verify Email');
+        if (data.success) {
+          navigate('/verify_email');
+        } else {
+          toast.error('An error occurred, please try again later.');
+        }
+
       } else {
-        // Handle registration error
-        // toast.error('An error occurred during registration. Please try again later.');
+        toast.error('An error occurred, please try again later.');
       }
+
     } catch (error) {
       console.error('Error registering user:', error);
       toast.error('An error occurred, please try again later.');
@@ -65,7 +80,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !phoneNumber || !email || !password || !username || !checkbox) {
+    if (!fullname || !phoneNumber || !email || !password || !username || !checkbox) {
       toast.error('Please fill in all the required fields correctly');
       return;
     }
@@ -74,17 +89,6 @@ const Signup = () => {
     // Call the handleRegister function to initiate the registration process
     handleRegister();
   };
-
-
-
-
-
-
-
-
-
-
-
 
 
   return (
@@ -163,8 +167,8 @@ const Signup = () => {
                       type="text"
                       name="fullname"
                       id="fullname"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
+                      value={fullname}
+                      onChange={(e) => setFullname(e.target.value)}
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Boniee Ben"
                       required
 

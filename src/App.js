@@ -3,6 +3,7 @@ import { Routes, Route, } from "react-router-dom"
 
 
 import LandingPage from "./pages/LandingPage";
+import AboutUs from "./pages/AboutUs";
 import Signup from "./pages/Signup";
 import VerifyEmail from "./pages/VerifyEmail";
 import VerifyOTP from "./pages/VerifyOTP";
@@ -34,6 +35,7 @@ const App = () => {
 
         <Routes>
           <Route exact path='/' element={< LandingPage />} />
+          <Route exact path='/about' element={< AboutUs />} />
           < Route path='/signup' element={< Signup />} />
           < Route path='/verify_email' element={< VerifyEmail />} />
           < Route path='/verify_OTP' element={< VerifyOTP />} />

@@ -2,10 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Wrapper from './Wrapper';
 
-import ShareLink from './dashboard/ShareLink';
-import Dashbar from './dashboard/Dashbar';
-import FarmSpeed from './dashboard/FarmSpeed';
-import Gauge from './dashboard/Gauge';
+import ShareLink from './userDB/ShareLink';
+import Dashbar from './userDB/Dashbar';
+import FarmSpeed from './userDB/FarmSpeed';
+import Gauge from './userDB/Gauge';
 
 
 import { Box, } from '@chakra-ui/react';

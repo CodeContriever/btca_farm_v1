@@ -202,7 +202,7 @@ const Login = () => {
                   className="py-4 flex flex-row gap-8"
                 >
 
-                  <span className='text-gray-500'>Forgot Password? <Link className='text-red-500' to="/recovery">Recover Now</Link></span>
+                  <span className='text-gray-500'>Forgot Password? <Link className='text-red-500' to="/reset">Recover Now</Link></span>
 
                 </div>
 

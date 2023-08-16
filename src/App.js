@@ -23,6 +23,8 @@ import Franchise from "./pages/Franchise";
 import Reseller from "./pages/Reseller";
 import Applications from "./pages/Applications";
 
+import AdminDashboard from "./pages/AdminDashboard";
+
 import { AuthProvider } from './utils/auth';
 import RequireAuth from './utils/RequireAuth';
 
@@ -57,6 +59,8 @@ const App = () => {
           < Route path='/franchise' element={< Franchise />} />
           < Route path='/reseller' element={< Reseller />} />
           < Route path='/applications' element={< Applications />} />
+
+          < Route path='/admin_dashboard' element={< AdminDashboard />} />
 
 
         </Routes>

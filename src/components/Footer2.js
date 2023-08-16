@@ -5,7 +5,7 @@ import { FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
 import { Container } from '@chakra-ui/react';
 const Footer2 = () => {
   return (
-    <div className="container mx-auto px-4 py-20 bg-white">
+    <div className="container mx-auto px-4 py-20 bg-[#D7E1E9]">
 
       <Container>
 
@@ -17,11 +17,13 @@ const Footer2 = () => {
             <div className='flex flex-col items-center justify-center gap-6'>
               <div className=''>
                 <Link to={'/home'}>
-                  <img src="/farmLogo.png" class="h-32 w-32" alt="BTCA Logo" />
+                  <img src="/farmLogo.png" class="w-32 h-32 md:w-48 md:h-48" alt="BTCA Logo" />
                 </Link>
               </div>
 
-              <h3 className='text-4xl text-gray-800 font-semibold'>BTC Africa Farm</h3>
+
+              <h3 className='text-2xl lg:text-5xl text-gray-800 font-extrabold'>BTC Africa Farm</h3>
+
 
             </div>
 
@@ -41,7 +43,7 @@ const Footer2 = () => {
       </Container>
 
       {/* Footer Items */}
-      <div className='flex flex-col lg:flex-row justify-between items-center gap-4 text-gray-800 font-semibold  lg:px-64 mt-8'>
+      <div className='flex flex-col lg:flex-row justify-between items-center gap-4 text-gray-800 font-semibold lg:px-64 mt-8'>
         <Link>Help</Link>
         <Link>FAQ</Link>
         <Link>General Terms and Conditions</Link>

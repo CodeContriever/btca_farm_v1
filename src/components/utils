@@ -1,0 +1,25 @@
+Heading
+<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+  Lorem ipsum
+</h1>
+
+Subheading1
+<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, sunt!
+</h2>
+
+subheading2
+<h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">
+  Lorem ipsum dolor sit amet.
+</h3>
+
+Subheading3
+<h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+  Step 1
+</h4>
+
+Paragraph
+<p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7">
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam nam aliquid dolores obcaecati accusamus voluptate
+  eius illum! Earum necessitatibus iste assumenda ipsam sunt. Vero deleniti assumenda qui id atque earum!
+</p>

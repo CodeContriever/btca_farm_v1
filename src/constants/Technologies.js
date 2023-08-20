@@ -11,35 +11,35 @@ import { AiFillSwitcher } from 'react-icons/ai';
 
 const Technologies = [
   {
-    icon: <AiOutlineAccountBook className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <AiOutlineAccountBook className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRIBOOK',
   },
   {
-    icon: <RiExchangeBoxLine className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <RiExchangeBoxLine className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRIEXCHANGE',
   },
   {
-    icon: <SiCoinmarketcap className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <SiCoinmarketcap className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRIMARKET',
   },
   {
-    icon: <MdMobileFriendly className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <MdMobileFriendly className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRIMOBILE',
   },
   {
-    icon: <SiDtube className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <SiDtube className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRIPAY TUBE',
   },
   {
-    icon: <BsFillChatDotsFill className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <BsFillChatDotsFill className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRICHAT',
   },
   {
-    icon: <GiArmorVest className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <GiArmorVest className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRIVEST',
   },
   {
-    icon: <AiFillSwitcher className="w-20 h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <AiFillSwitcher className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
     title: 'AFRIWIT',
   },
 ];

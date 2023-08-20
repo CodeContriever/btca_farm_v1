@@ -5,7 +5,7 @@ import { FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
 import { Container } from '@chakra-ui/react';
 const Footer2 = () => {
   return (
-    <div className="container mx-auto px-4 py-20 bg-[#D7E1E9]">
+    <div className="container mx-auto px-4 py-20 bg-[#e6ebf0]">
 
       <Container>
 
@@ -44,11 +44,41 @@ const Footer2 = () => {
 
       {/* Footer Items */}
       <div className='flex flex-col lg:flex-row justify-between items-center gap-4 text-gray-800 font-semibold lg:px-64 mt-8'>
-        <Link>Help</Link>
-        <Link>FAQ</Link>
-        <Link>General Terms and Conditions</Link>
-        <Link>Risk Notice</Link>
-        <Link>Data and Privacy policy</Link>
+        <Link
+          to={'/help'}
+          className='text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7'
+        >
+          Help
+        </Link>
+
+        <Link
+          to={'/faq'}
+          className='text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7'
+        >
+          FAQ
+        </Link>
+
+        <Link
+          to={'/terms'}
+          className='text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7'
+        >
+          General Terms and Conditions
+        </Link>
+
+        <Link
+          to={'/risk_notice'}
+          className='text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7'
+        >
+          Risk Notice
+        </Link>
+
+        <Link
+          to={'/policy'}
+          className='text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7'
+        >
+          Data and Privacy policy
+        </Link>
+
       </div>
 
     </div>

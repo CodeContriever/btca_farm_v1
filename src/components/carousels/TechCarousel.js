@@ -58,10 +58,10 @@ function TechCarousel() {
                 transform: isAnimating && index === 0 ? 'translateX(-100%)' : 'none',
               }}
             >
-              <div className="flex flex-col items-center justify-center gap-6 bg-gray-300 max-w-md px-8 py-6">
+              <div className="flex flex-col items-center justify-center gap-6 max-w-md md:px-8 md:py-6">
                 {/* Render the icon from the Technologies array */}
                 {item.icon}
-                <h3 className="mb-2 text-xl font-bold text-[#A020F0] dark:text-white">
+                <h3 className="mb-2 leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-[#A020F0] dark:text-white">
                   {/* Render the title from the Technologies array */}
                   {item.title}
                 </h3>

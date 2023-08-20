@@ -16,7 +16,7 @@ const Nav2 = () => {
 
   return (
 
-    <nav class="">
+    <nav class="bg-[#e6ebf0]">
 
       {/* Nav Items */}
       <div class="flex flex-wrap justify-between items-center">
@@ -163,22 +163,27 @@ const Nav2 = () => {
         </div>
 
         {/* Nav items */}
-        <div class="hidden w-full lg:flex items-center justify-between order-2 lg:w-auto " id="nav_items">
-          <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+        <div class="hidden w-full md:flex items-center justify-between order-2 md:w-auto " id="nav_items">
+          <ul class="flex flex-col mt-4 font-medium md:flex-row lg:space-x-8 md:mt-0">
 
             {/* Home */}
             <li>
-              <a href="/dashboard" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]   rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
+              <a href="/dashboard" class="block py-2 pl-3 pr-4 hover:text-[#A020F0] rounded lg:bg-transparent text-gray-700  lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
             </li>
 
             {/* Wallet */}
             <li>
-              <a href="/wallet" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Wallet</a>
+              <a href="/wallet" class="block py-2 pl-3 pr-4 hover:text-[#A020F0]  rounded lg:bg-transparent text-gray-700 lg:p-0 dark:text-white" aria-current="page">Wallet</a>
             </li>
 
-            {/* Application */}
+            {/* Support */}
             <li>
-              <a href="/support" class="block py-2 pl-3 pr-4 text-white lg:hover:text-[#A020F0]  rounded lg:bg-transparent lg:text-gray-700 lg:p-0 dark:text-white" aria-current="page">Support</a>
+              <a href="/support" class="block py-2 pl-3 pr-4  hover:text-[#A020F0]  rounded lg:bg-transparent text-gray-700 lg:p-0 dark:text-white" aria-current="page">Support</a>
+            </li>
+
+            {/* Statistics */}
+            <li>
+              <a href="/statistics" class="block py-2 pl-3 pr-4  hover:text-[#A020F0]  rounded lg:bg-transparent text-gray-700 lg:p-0 dark:text-white" aria-current="page">Statistics</a>
             </li>
 
 

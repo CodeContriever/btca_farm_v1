@@ -1,45 +1,37 @@
 import React from 'react';
-import { AiOutlineAccountBook } from 'react-icons/ai';
-import { RiExchangeBoxLine } from 'react-icons/ri';
-import { SiCoinmarketcap } from 'react-icons/si';
-import { MdMobileFriendly } from 'react-icons/md';
-import { SiDtube } from 'react-icons/si';
-import { BsFillChatDotsFill } from 'react-icons/bs';
-import { GiArmorVest } from 'react-icons/gi';
-import { AiFillSwitcher } from 'react-icons/ai';
 
 
 const Technologies = [
   {
-    icon: <AiOutlineAccountBook className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <img src='afribook.svg' alt='afribook' className="w-20 h-20 md:w-48 md:h-48" />,
     title: 'AFRIBOOK',
   },
   {
-    icon: <RiExchangeBoxLine className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <img src='afriexchange.svg' alt='afriexchange' className="w-20 h-20 md:w-48 md:h-48" />,
     title: 'AFRIEXCHANGE',
   },
   {
-    icon: <SiCoinmarketcap className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <img src='afrimarket.svg' alt='afrimarket' className="w-20 h-20 md:w-48 md:h-48" />,
     title: 'AFRIMARKET',
   },
   {
-    icon: <MdMobileFriendly className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <img src='afrimobile.svg' alt='afrimobile' className="w-20 h-20 md:w-48 md:h-48" />,
     title: 'AFRIMOBILE',
   },
   {
-    icon: <SiDtube className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
-    title: 'AFRIPAY TUBE',
+    icon: <img src='afripay.svg' alt='afripay' className="w-20 h-20 md:w-48 md:h-48" />,
+    title: 'AFRIPAY',
   },
   {
-    icon: <BsFillChatDotsFill className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <img src='africhat.svg' alt='africhat' className="w-20 h-20 md:w-48 md:h-48" />,
     title: 'AFRICHAT',
   },
   {
-    icon: <GiArmorVest className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <img src='afrivest.svg' alt='afrivest' className="w-20 h-20 md:w-48 md:h-48" />,
     title: 'AFRIVEST',
   },
   {
-    icon: <AiFillSwitcher className="w-12 h-12 md:w-20 md:h-20 text-[#A020F0] dark:text-blue-300" />,
+    icon: <img src='afriwit.svg' alt='afriwit' className="w-20 h-20 md:w-48 md:h-48" />,
     title: 'AFRIWIT',
   },
 ];

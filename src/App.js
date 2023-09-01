@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, } from "react-router-dom"
 
 
-import LandingPage from "./pages/LandingPage";
+// import LandingPage from "./pages/LandingPage";
 import AboutUs from "./pages/AboutUs";
 import Signup from "./pages/Signup";
 import VerifyEmail from "./pages/VerifyEmail";
@@ -11,6 +11,7 @@ import Signin from "./pages/Signin";
 import Reset from "./pages/Reset";
 import Recovery from "./pages/Recovery";
 import NotFoundPage from "./pages/NotFoundPage";
+import AccessDeniedPage from "./pages/AccessDeniedPage";
 import HomePage from "./pages/HomePage";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
@@ -27,6 +28,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 
 import { AuthProvider } from './utils/auth';
 import RequireAuth from './utils/RequireAuth';
+import Statistics from './pages/Statistics';
 
 
 
@@ -36,8 +38,9 @@ const App = () => {
       <AuthProvider >
 
         <Routes>
-          <Route exact path='/' element={< LandingPage />} />
+          <Route exact path='/' element={< AboutUs />} />
           <Route exact path='/about' element={< AboutUs />} />
+          <Route exact path='/statistics' element={< Statistics />} />
           < Route path='/signup' element={< Signup />} />
           < Route path='/verify_email' element={< VerifyEmail />} />
           < Route path='/verify_OTP' element={< VerifyOTP />} />
@@ -45,6 +48,7 @@ const App = () => {
           < Route path='/reset' element={< Reset />} />
           < Route path='/recovery' element={< Recovery />} />
           < Route path="*" element={< NotFoundPage />} />
+          < Route path="/access-denied" element={< AccessDeniedPage />} />
 
 
           {/* <Route element={<HomePage />} path="/home" /> */}
@@ -56,11 +60,37 @@ const App = () => {
           < Route path='/support' element={< Support />} />
           < Route path='/wallet' element={< Wallet />} />
           < Route path='/withdrawal' element={< Withdrawal />} />
-          < Route path='/franchise' element={< Franchise />} />
-          < Route path='/reseller' element={< Reseller />} />
+          {/* < Route path='/franchise' element={< Franchise />} /> */}
+          {/* < Route path='/reseller' element={< Reseller />} /> */}
           < Route path='/applications' element={< Applications />} />
 
-          < Route path='/admin_dashboard' element={< AdminDashboard />} />
+          <Route
+            element={
+              <RequireAuth
+                requiredRoles={['superadmin', 'admin']}>
+                <AdminDashboard />
+              </RequireAuth>
+            }
+            path="/admin_dashboard"
+          />
+          <Route
+            element={
+              <RequireAuth
+                requiredRoles={['franchise']}>
+                <Franchise />
+              </RequireAuth>
+            }
+            path="/franchise"
+          />
+          <Route
+            element={
+              <RequireAuth
+                requiredRoles={['reseller']}>
+                <Reseller />
+              </RequireAuth>
+            }
+            path="/reseller"
+          />
 
 
         </Routes>

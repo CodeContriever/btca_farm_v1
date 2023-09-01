@@ -37,7 +37,9 @@ function TechCarousel() {
 
   return (
     <div className="flex items-center justify-center w-full">
+
       <div className="carousel-container overflow-hidden">
+
         <div
           ref={carouselRef}
           className={`carousel-items grid grid-cols-2 md:grid-cols-2 gap-4 transition-transform duration-500`}
@@ -58,10 +60,13 @@ function TechCarousel() {
                 transform: isAnimating && index === 0 ? 'translateX(-100%)' : 'none',
               }}
             >
-              <div className="flex flex-col items-center justify-center gap-6 max-w-md md:px-8 md:py-6">
+              <div
+                className="flex flex-col items-center justify-center">
                 {/* Render the icon from the Technologies array */}
                 {item.icon}
+
                 <h3 className="mb-2 leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-[#A020F0] dark:text-white">
+
                   {/* Render the title from the Technologies array */}
                   {item.title}
                 </h3>

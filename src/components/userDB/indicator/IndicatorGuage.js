@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const Gauge = () => {
+const IndicatorGauge = () => {
   const data = {
     labels: ['Red', 'Yellow', 'Green'],
     datasets: [
@@ -41,8 +41,8 @@ const Gauge = () => {
 
   const gaugeNeedle = {
     id: 'gaugeNeedle',
-    afterDatasetDraw(chart, ) {
-      const { ctx,  data, chartArea: { width, height } } = chart;
+    afterDatasetDraw(chart,) {
+      const { ctx, data, chartArea: { width, height } } = chart;
       ctx.save();
       const needleValue = data.datasets[0].needleValue;
       const dataTotal = data.datasets[0].data.reduce((a, b) => a + b, 0);
@@ -87,4 +87,4 @@ const Gauge = () => {
   );
 };
 
-export default Gauge;
+export default IndicatorGauge;

@@ -2,8 +2,7 @@ import React from 'react'
 import { useState } from "react";
 
 
-
-const Nav2 = () => {
+const Nav3 = () => {
 
   const [activeButton, setActiveButton] = useState(null);
   const handleButtonClick = (buttonName) => {
@@ -16,7 +15,7 @@ const Nav2 = () => {
 
   return (
 
-    <nav class="bg-white py-4 px-4">
+    <nav class="">
 
       {/* Nav Items */}
       <div class="flex flex-wrap justify-between items-center">
@@ -82,7 +81,7 @@ const Nav2 = () => {
 
           {activeButton === 'menu' && (
             <div
-              class="items-center justify-start lg:hidden  flex  w-[100%] order-1 bg-white"
+              class="items-center justify-start lg:hidden  flex  w-[100%] order-1 bg-gray-400"
               id="mobile-menu-2"
               tabIndex="-1"
             >
@@ -162,34 +161,6 @@ const Nav2 = () => {
 
         </div>
 
-        {/* Nav items */}
-        <div class="hidden w-full md:flex items-center justify-between order-2 md:w-auto " id="nav_items">
-          <ul class="flex flex-col mt-4 font-medium md:flex-row lg:space-x-8 md:mt-0">
-
-            {/* Home */}
-            <li>
-              <a href="/dashboard" class="block py-2 pl-3 pr-4 hover:text-[#A020F0] rounded lg:bg-transparent text-gray-700  lg:p-0 dark:text-white" aria-current="page">Dashboard</a>
-            </li>
-
-            {/* Wallet */}
-            <li>
-              <a href="/wallet" class="block py-2 pl-3 pr-4 hover:text-[#A020F0]  rounded lg:bg-transparent text-gray-700 lg:p-0 dark:text-white" aria-current="page">Wallet</a>
-            </li>
-
-            {/* Support */}
-            <li>
-              <a href="/support" class="block py-2 pl-3 pr-4  hover:text-[#A020F0]  rounded lg:bg-transparent text-gray-700 lg:p-0 dark:text-white" aria-current="page">Support</a>
-            </li>
-
-            {/* Statistics */}
-            <li>
-              <a href="/statistics" class="block py-2 pl-3 pr-4  hover:text-[#A020F0]  rounded lg:bg-transparent text-gray-700 lg:p-0 dark:text-white" aria-current="page">Statistics</a>
-            </li>
-
-
-          </ul>
-
-        </div>
 
         {/* Notifications, language & Profile */}
         <div class="flex items-center justify-center order-3 lg:order-2 ">
@@ -219,7 +190,7 @@ const Nav2 = () => {
               {/* <!-- Notification bell dropdowns --> */}
               {activeButton === 'notification' && (
                 <div
-                  class="w-64 lg:w-90 absolute top-12 right-8 z-10 overflow-hidden  my-4  text-base list-none bg-gray-800 divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
+                  class="w-64 lg:w-90 absolute top-12 right-8 z-10 overflow-hidden  my-4  text-base list-none bg-gray-400 divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
                   id="notification-dropdown"
                   tabIndex="-1"
                 >
@@ -483,7 +454,7 @@ const Nav2 = () => {
               {/* <!-- language Dropdown items --> */}
               {activeButton === 'flag' && (
                 <div
-                  class=" w-64 absolute top-12 right-8 z-10 my-4 text-base list-none bg-gray-500 rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+                  class=" w-64 absolute top-12 right-8 z-10 my-4 text-base list-none bg-gray-400 rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
                   id="language-dropdown"
                 >
                   <ul class="py-1" role="none">
@@ -672,7 +643,7 @@ const Nav2 = () => {
               {/* <!-- User profile menu items--> */}
               {activeButton === 'profile' && (
                 <div
-                  class=" w-64 absolute top-12 right-20 lg:right-12 z-10 my-4  text-base list-none bg-gray-500 text-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
+                  class=" w-64 absolute top-12 right-20 lg:right-12 z-10 my-4  text-base list-none bg-gray-400 divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
                   id="dropdown"
                 >
 
@@ -746,4 +717,4 @@ const Nav2 = () => {
   )
 }
 
-export default Nav2
+export default Nav3

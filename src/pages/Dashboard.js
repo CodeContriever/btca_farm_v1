@@ -3,7 +3,7 @@ import React from "react";
 import Sidebar from "../components/Sidebar";
 import Nav3 from "../components/Nav3";
 // import Footer from "../components/Footer";
-import DashboardMain from "../components/DashboardMain"
+import UserDashboard from "../components/UserDashboard"
 import Footer2 from "../components/Footer2";
 
 
@@ -45,7 +45,7 @@ const Dashboard = () => {
 
             <div className="col-span-3 lg:col-span-2 w-[100%]">
 
-              <DashboardMain />
+              <UserDashboard />
 
             </div>
 

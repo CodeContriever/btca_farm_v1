@@ -1,38 +1,30 @@
-import React from 'react'
-import {
-  Chart as ChartJS,
-  BarElement,
-  CategoryScale,
-  LinearScale, //y
-  Tooltip,
-  Legend
-} from 'chart.js'
-
-import { Bar } from 'react-chartjs-2'
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(
   BarElement,
   CategoryScale,
-  LinearScale, //y
+  LinearScale,
   Tooltip,
   Legend
-)
+);
+
 const FarmSpeed = () => {
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [
       {
-        label: 'green',
-        data: [4, 5, 6, 7, 9, 8, 7,],
+        label: 'Green',
+        data: [4, 5, 6, 7, 9, 8, 7],
         backgroundColor: 'rgba(0, 128, 128, 0.8)',
         borderColor: 'black',
         borderWidth: 1,
         hoverBackgroundColor: 'lightblue',
         hoverBorderColor: 'darkblue',
       },
-
       {
-        label: 'grey',
+        label: 'Grey',
         data: [7, 4, 3, 4, 5, 6, 8],
         backgroundColor: 'grey',
         borderColor: 'black',
@@ -40,38 +32,28 @@ const FarmSpeed = () => {
         hoverBackgroundColor: 'yellow',
         hoverBorderColor: 'darkblue',
       },
-    ]
-  }
+    ],
+  };
 
   const options = {
     plugins: {
       legend: {
         display: false,
       },
-
     },
-  }
+  };
+
   return (
-    <div className='w-[100%]'>
-      <div className='p-8 text-base font-semibold '>
+    <div className="w-full">
+      <div className="p-8 text-base font-semibold">
         <h1>Farm Speed</h1>
       </div>
 
-      <div
-        className='p-8 space-x-8'
-      >
-        <Bar
-          data={data}
-          options={options}
-          className='w-full'
-
-        >
-
-        </Bar>
+      <div className="p-8 space-x-8">
+        <Bar data={data} options={options} className="w-full" />
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default FarmSpeed
+export default FarmSpeed;

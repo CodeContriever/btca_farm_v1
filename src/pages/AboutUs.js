@@ -571,13 +571,13 @@ const AboutUs = () => {
         {/*SEE EXPLORER*/}
         <section
           className="bg-[#4173a3] dark:bg-gray-900 py-20"
-        // style={{
-        //   backgroundImage: "url(bg_btca-8.jpg)",
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center",
-        //   backgroundRepeat: "no-repeat",
-        //   opacity: "0.9",
-        // }}
+          style={{
+            backgroundImage: "url(bg_btca-8.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            opacity: "0.9",
+          }}
         >
 
           {/* Wrapper */}

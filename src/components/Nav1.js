@@ -9,7 +9,7 @@ const Nav1 = () => {
   };
 
   const navLinks = [
-    { to: '/home', label: 'Home' },
+    { to: '/dashboard', label: 'Dashboard' },
     { to: '/signin', label: 'Signin' },
     { to: '/signup', label: 'Signup' },
   ];

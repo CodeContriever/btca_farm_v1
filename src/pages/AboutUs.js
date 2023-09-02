@@ -255,11 +255,7 @@ const AboutUs = () => {
                   {/* Step 1 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
-                      </svg>
-                    } bgColor="green-200" />
+                    <StepperIcon imageSrc="one.svg" imageAlt="one" />
 
                     <StepText heading="Register on the website" textColor="text-white" />
 
@@ -268,11 +264,7 @@ const AboutUs = () => {
                   {/* Step 2 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                        <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="two.svg" imageAlt="one" />
 
                     <StepText heading="Download BTCA wallet and Farm" textColor="text-white" />
                   </div>
@@ -281,11 +273,7 @@ const AboutUs = () => {
                   {/* Step 3 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="three.svg" imageAlt="one" />
 
                     <StepText heading="Activate your mining space" textColor="text-white" />
                   </div>
@@ -293,11 +281,9 @@ const AboutUs = () => {
                   {/* Step 4 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="four.svg" imageAlt="one"
+                      customStyles={{ width: '60px', height: '60px', }}
+                    />
 
                     <StepText heading="Send your coins to Farm App for mining" textColor="text-white" />
                   </div>
@@ -305,11 +291,8 @@ const AboutUs = () => {
                   {/* Step 5 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="five.svg" imageAlt="one" customStyles={{ width: '120px', height: '60px', }}
+                    />
 
                     <StepText heading="New coins can be mined 24/7 and sent to your main wallet, where you can spend them" textColor="text-white" />
                   </div>
@@ -328,11 +311,7 @@ const AboutUs = () => {
                   {/* Step 1 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
-                      </svg>
-                    } bgColor="green-200" />
+                    <StepperIcon imageSrc="one.svg" imageAlt="one" />
 
                     <StepText heading="Step1" content="After installation, log in to the Ultima Farm;" textColor="text-white" />
 
@@ -341,11 +320,7 @@ const AboutUs = () => {
                   {/* Step 2 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                        <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="two.svg" imageAlt="one" />
 
                     <StepText heading="Step2" content="Create a Farm Wallet and send coins to it;" textColor="text-white" />
 
@@ -355,11 +330,7 @@ const AboutUs = () => {
                   {/* Step 3 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="three.svg" imageAlt="one" />
 
                     <StepText heading="Step3" content="Enter into a smart contract;" textColor="text-white" />
 
@@ -368,11 +339,8 @@ const AboutUs = () => {
                   {/* Step 4 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="four.svg" imageAlt="one" customStyles={{ width: '80px', height: '60px', }}
+                    />
 
                     <StepText heading="Step4" content="Coins will be mined to your wallet every month in equal amounts!" textColor="text-white" />
 
@@ -438,11 +406,7 @@ const AboutUs = () => {
                   {/* Step 1 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
-                      </svg>
-                    } bgColor="green-200" />
+                    <StepperIcon imageSrc="one-v2.svg" imageAlt="one" />
 
                     <StepText heading="Easy" content="Easy and simple, with full control of your BTCA." />
 
@@ -451,11 +415,7 @@ const AboutUs = () => {
                   {/* Step 2 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                        <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="two-v2.svg" imageAlt="one" />
 
                     <StepText heading="Safe" content="The Private Key is only stored on your smartphone." />
 
@@ -465,11 +425,11 @@ const AboutUs = () => {
                   {/* Step 3 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon
+                      imageSrc="three-v2.svg"
+                      imageAlt="one"
+                      customStyles={{ width: '120px', height: '60px', }}
+                    />
 
                     <StepText heading="Functional" content="Receive, send, store BTCA. Can be integrated in the application and the BTCA Farm and stores all mined coins." />
 
@@ -478,11 +438,7 @@ const AboutUs = () => {
                   {/* Step 4 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="four-v2.svg" imageAlt="one" />
 
                     <StepText heading="Transaction" content="Unprecedented level of security to date" />
 
@@ -518,11 +474,8 @@ const AboutUs = () => {
                   {/* Step 1 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
-                      </svg>
-                    } bgColor="green-200" />
+                    <StepperIcon imageSrc="one-v2.svg" imageAlt="one" customStyles={{ width: '120px', height: '60px', }}
+                    />
 
                     <StepText heading="Safe" content="Secure and non-standard encryption of the Private Key and storing the encrypted data on your smartphone." />
 
@@ -531,11 +484,8 @@ const AboutUs = () => {
                   {/* Step 2 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                        <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon imageSrc="two-v2.svg" imageAlt="one" customStyles={{ width: '120px', height: '60px', }}
+                    />
 
                     <StepText heading="Personal" content="Turn your smartphone into your efficient and ergonomic farm that brings you the most value!" />
 
@@ -545,11 +495,11 @@ const AboutUs = () => {
                   {/* Step 3 */}
                   <div className="flex flex-row gap-4">
 
-                    <StepperIcon svgCode={
-                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                      </svg>
-                    } bgColor="gray-100" />
+                    <StepperIcon
+                      imageSrc="three-v2.svg"
+                      imageAlt="one"
+                      customStyles={{ width: '120px', height: '60px', }}
+                    />
 
                     <StepText heading="Autonomous" content="The App can run without your participation, mining new BTCA for you. Link to download." />
 

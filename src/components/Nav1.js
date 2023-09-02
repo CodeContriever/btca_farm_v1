@@ -10,6 +10,7 @@ const Nav1 = () => {
 
   const navLinks = [
     { to: '/dashboard', label: 'Dashboard' },
+    { to: '/statistics', label: 'Statistics' },
     { to: '/signin', label: 'Signin' },
     { to: '/signup', label: 'Signup' },
   ];

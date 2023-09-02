@@ -12,7 +12,7 @@ import Reset from "./pages/Reset";
 import Recovery from "./pages/Recovery";
 import NotFoundPage from "./pages/NotFoundPage";
 import AccessDeniedPage from "./pages/AccessDeniedPage";
-import HomePage from "./pages/HomePage";
+// import HomePage from "./pages/HomePage";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import Activation from "./pages/Activation";
@@ -52,7 +52,7 @@ const App = () => {
 
 
           {/* <Route element={<HomePage />} path="/home" /> */}
-          < Route element={<RequireAuth>< HomePage /></RequireAuth>} path="/home" />
+          < Route element={<RequireAuth>< AboutUs /></RequireAuth>} path="/home" />
           < Route element={<RequireAuth>< Profile /></RequireAuth>} path="/profile" />
           <Route element={<Dashboard />} path="/dashboard" />
           < Route path='/activation' element={< Activation />} />

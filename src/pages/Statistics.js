@@ -1,11 +1,49 @@
 import React, { useState, useEffect } from "react";
 import Nav2 from "../components/Nav2";
 import Footer2 from "../components/Footer2";
-import Wrapper from "../components/Wrapper";
 import UserGrowthChart from "../components/UserGrowthChart";
+import { RxAvatar } from 'react-icons/rx';
+import { BsStars } from 'react-icons/bs';
+
 
 const Statistics = () => {
   const [activeButton, setActiveButton] = useState("topUsers");
+
+  // TOTAL REGISTER USERS
+  const [showTotalRegisterUsers, setshowTotalRegisterUsers] = useState(true)
+  const toggleTotalRegisterUsers = () => {
+    setshowTotalRegisterUsers(!showTotalRegisterUsers);
+  };
+
+  const [showAllTotalRegisterUsers, setshowAllTotalRegisterUsers] = useState(false)
+  const toggleAllTotalRegisterUsers = () => {
+    setshowAllTotalRegisterUsers(!showAllTotalRegisterUsers);
+  };
+
+
+  // ACTIVE USERS ONLINE
+  const [showActiveUsersOnline, setshowActiveUsersOnline] = useState(true)
+  const toggleActiveUsersOnline = () => {
+    setshowActiveUsersOnline(!showActiveUsersOnline);
+  };
+
+  const [showAllActiveUsersOnline, setshowAllActiveUsersOnline] = useState(false)
+  const toggleAllActiveUsersOnline = () => {
+    setshowAllActiveUsersOnline(!showAllActiveUsersOnline);
+  };
+
+
+  // TOP USERS
+  const [showTopUsers, setShowTopUsers] = useState(true);
+  const [showAllTopUsers, setShowAllTopUsers] = useState(false);
+
+  const toggleTopUsers = () => {
+    setShowTopUsers(!showTopUsers);
+  };
+
+  const toggleAllTopUsers = () => {
+    setShowAllTopUsers(!showAllTopUsers);
+  };
 
 
   // TOP INFLUENCERS
@@ -195,6 +233,128 @@ const Statistics = () => {
                     </div>
 
 
+                    {/* TOP USERS*/}
+                    <div className="mt-12 bg-[#F9FAFB] shadow-lg">
+
+                      <div className="bg-white flex flex-row justify-between px-4">
+
+                        <button
+                          className="box-border p-3 md:p-6 transition-colors whitespace-nowrap text-base md:text-lg font-medium leading-6 cursor-pointer relative text-center"
+                          onClick={toggleTopUsers}
+                        >
+                          TOP USERS
+                        </button>
+
+                        <button onClick={toggleAllTopUsers}>
+                          {showAllTopUsers ? 'Show Less' : 'See All'}
+                        </button>
+
+                      </div>
+
+
+                      {showTopUsers && (
+                        <div className="bg-[#F9FAFB] shadow-lg px-4 py-8">
+
+                          <div className="flex flex-col gap-6">
+
+                            {/* First influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  9,110,386.95
+                                </p>
+                                <BsStars className="w-6 h-6" />
+
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  ice
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Second influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  9,110,386.95
+                                </p>
+                                <BsStars className="w-6 h-6" />
+
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  ice
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Third influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  9,110,386.95
+                                </p>
+                                <BsStars className="w-6 h-6" />
+
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  ice
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                      )}
+
+                    </div>
+
                     {/* TOP INFLUENCERS */}
                     <div className="mt-12 bg-[#F9FAFB] shadow-lg">
 
@@ -236,9 +396,11 @@ const Statistics = () => {
                                 </h4>
                               </div>
 
-                              <div>
-                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7">
-                                  1234567*890
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
                                 </p>
                               </div>
 
@@ -259,9 +421,11 @@ const Statistics = () => {
                                 </h4>
                               </div>
 
-                              <div>
-                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7">
-                                  1234567*890
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
                                 </p>
                               </div>
 
@@ -282,9 +446,11 @@ const Statistics = () => {
                                 </h4>
                               </div>
 
-                              <div>
-                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7">
-                                  1234567*890
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
                                 </p>
                               </div>
 
@@ -372,9 +538,11 @@ const Statistics = () => {
                               </div>
                               {/* </div> */}
 
-                              <div>
-                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7">
-                                  1234567*890
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
                                 </p>
                               </div>
 
@@ -403,9 +571,11 @@ const Statistics = () => {
 
                               </div>
 
-                              <div>
-                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7">
-                                  1234567*890
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
                                 </p>
                               </div>
 
@@ -441,9 +611,11 @@ const Statistics = () => {
                               </div>
 
 
-                              <div>
-                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7">
-                                  1234567*890
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
                                 </p>
                               </div>
 
@@ -466,11 +638,620 @@ const Statistics = () => {
 
 
                 {activeButton === 'activeUsers' && (
-                  <Wrapper>
-                    <div className="box-border rounded-md bg-white shadow-lg">
-                      {/* Contents for active users */}
+                  <div>
+
+                    {/* TOP REGISTER USERS */}
+                    <div className="mt-12 bg-[#F9FAFB] shadow-lg">
+
+                      <div className="bg-white flex flex-row justify-between px-4">
+
+                        <button
+                          className="box-border p-3 md:p-6 transition-colors whitespace-nowrap text-base md:text-lg font-medium leading-6 cursor-pointer relative text-center"
+                          onClick={toggleTotalRegisterUsers}
+                        >
+                          TOTAL REGISTER USERS
+                        </button>
+
+                        <button onClick={toggleAllTotalRegisterUsers}>
+                          {showAllTotalRegisterUsers ? 'Show Less' : 'See All'}
+                        </button>
+
+                      </div>
+
+
+                      {showTotalRegisterUsers && (
+                        <div className="bg-[#F9FAFB] shadow-lg px-4 py-8">
+
+                          <div className="flex flex-col gap-6">
+
+                            {/* First influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Second influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Third influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                      )}
+
                     </div>
-                  </Wrapper>
+
+                    {/* ACTIVE USERS ONLINE */}
+                    <div className="mt-12 bg-[#F9FAFB] shadow-lg">
+
+                      <div className="bg-white flex flex-row justify-between px-4">
+
+                        <button
+                          className="box-border p-3 md:p-6 transition-colors whitespace-nowrap text-base md:text-lg font-medium leading-6 cursor-pointer relative text-center"
+                          onClick={toggleActiveUsersOnline}
+                        >
+                          ACTIVE USERS ONLINE
+                        </button>
+
+                        <button onClick={toggleAllActiveUsersOnline}>
+                          {showAllActiveUsersOnline ? 'Show Less' : 'See All'}
+                        </button>
+
+                      </div>
+
+
+                      {showActiveUsersOnline && (
+                        <div className="bg-[#F9FAFB] shadow-lg px-4 py-8">
+
+                          <div className="flex flex-col gap-6">
+
+                            {/* First influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Second influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Third influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                      )}
+
+                    </div>
+
+
+                    {/* TOP USERS*/}
+                    <div className="mt-12 bg-[#F9FAFB] shadow-lg">
+
+                      <div className="bg-white flex flex-row justify-between px-4">
+
+                        <button
+                          className="box-border p-3 md:p-6 transition-colors whitespace-nowrap text-base md:text-lg font-medium leading-6 cursor-pointer relative text-center"
+                          onClick={toggleTopUsers}
+                        >
+                          TOP USERS
+                        </button>
+
+                        <button onClick={toggleAllTopUsers}>
+                          {showAllTopUsers ? 'Show Less' : 'See All'}
+                        </button>
+
+                      </div>
+
+
+                      {showTopUsers && (
+                        <div className="bg-[#F9FAFB] shadow-lg px-4 py-8">
+
+                          <div className="flex flex-col gap-6">
+
+                            {/* First influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  9,110,386.95
+                                </p>
+                                <BsStars className="w-6 h-6" />
+
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  ice
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Second influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  9,110,386.95
+                                </p>
+                                <BsStars className="w-6 h-6" />
+
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  ice
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Third influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  9,110,386.95
+                                </p>
+                                <BsStars className="w-6 h-6" />
+
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  ice
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                      )}
+
+                    </div>
+
+                    {/* TOP INFLUENCERS */}
+                    <div className="mt-12 bg-[#F9FAFB] shadow-lg">
+
+                      <div className="bg-white flex flex-row justify-between px-4">
+
+                        <button
+                          className="box-border p-3 md:p-6 transition-colors whitespace-nowrap text-base md:text-lg font-medium leading-6 cursor-pointer relative text-center"
+                          onClick={toggleTopInfluencers}
+                        >
+                          TOP INFLUENCERS
+                        </button>
+
+                        <button onClick={toggleAllTopInfluencers}>
+                          {showAllTopInfluencers ? 'Show Less' : 'See All'}
+                        </button>
+
+                        <button className="hidden" onClick={updateTopInfluencers}>Update</button>
+
+                      </div>
+
+
+                      {showTopInfluencers && (
+                        <div className="bg-[#F9FAFB] shadow-lg px-4 py-8">
+
+                          <div className="flex flex-col gap-6">
+
+                            {/* First influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Second influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+                            {/* Third influencer */}
+                            <div className="flex flex-row justify-between">
+
+                              <div className="flex flex-row gap-4">
+                                <img
+                                  className="w-11 h-11 rounded-full"
+                                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                  alt="Bonnie Green avatar"
+                                />
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Jayden
+                                </h4>
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                      )}
+
+                    </div>
+
+
+                    {/* TOP COUNTRIES */}
+                    <div className="mt-12 bg-[#F9FAFB] shadow-lg">
+
+                      <div className="bg-white flex flex-row justify-between px-4">
+
+                        <button
+                          className="box-border p-3 md:p-6 transition-colors whitespace-nowrap text-base md:text-lg font-medium leading-6 cursor-pointer relative text-center"
+                          onClick={toggleTopCountries}
+                        >
+                          TOP COUNTRIES
+                        </button>
+
+                        <button onClick={toggleAllTopCountries}>
+                          {showAllTopCountries ? 'Show Less' : 'See All'}
+                        </button>
+
+                        <button className="hidden" onClick={updateTopCountries}>Update</button>
+
+                      </div>
+
+
+                      {showTopCountries && (
+                        <div className="bg-[#F9FAFB] shadow-lg px-4 py-8">
+
+                          <div className="flex flex-col gap-6">
+
+                            {/* First Country*/}
+                            <div className="flex flex-row justify-between">
+
+                              {/* <div className="flex flex-row gap-4"> */}
+                              <div class="inline-flex items-center">
+
+                                <svg
+                                  aria-hidden="true"
+                                  className="h-8 w-8 rounded-full mr-2 leading-tight text-lg sm:text-xl md:text-2xl font-semibold"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  id="flag-icon-css-us"
+                                  viewBox="0 0 512 512"
+                                >
+                                  <g fill-rule="evenodd">
+                                    <g stroke-width="1pt">
+                                      <path
+                                        fill="#bd3d44"
+                                        d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                        transform="scale(3.9385)"
+                                      />
+                                      <path
+                                        fill="#fff"
+                                        d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                        transform="scale(3.9385)"
+                                      />
+                                    </g>
+                                    <path
+                                      fill="#192f5d"
+                                      d="M0 0h98.8v70H0z"
+                                      transform="scale(3.9385)"
+                                    />
+                                    <path
+                                      fill="#fff"
+                                      d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
+                                      transform="scale(3.9385)"
+                                    />
+                                  </g>
+
+                                </svg>
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  English (US)
+                                </h4>
+
+                              </div>
+                              {/* </div> */}
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                            {/* Second Country*/}
+                            <div className="flex flex-row justify-between">
+
+                              <div class="inline-flex items-center">
+
+                                <svg
+                                  aria-hidden="true"
+                                  class="h-8 w-8 rounded-full mr-2"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  id="flag-icon-css-de"
+                                  viewBox="0 0 512 512"
+                                >
+                                  <path fill="#ffce00" d="M0 341.3h512V512H0z" />
+                                  <path d="M0 0h512v170.7H0z" />
+                                  <path fill="#d00" d="M0 170.7h512v170.6H0z" />
+                                </svg>
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Deutsch
+                                </h4>
+
+                              </div>
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                            {/* Third Country*/}
+                            <div className="flex flex-row justify-between">
+
+                              <div class="inline-flex items-center">
+
+                                <svg
+                                  aria-hidden="true"
+                                  class="h-8 w-8 rounded-full mr-2"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  id="flag-icon-css-it"
+                                  viewBox="0 0 512 512"
+                                >
+                                  <g fill-rule="evenodd" stroke-width="1pt">
+                                    <path fill="#fff" d="M0 0h512v512H0z" />
+                                    <path fill="#009246" d="M0 0h170.7v512H0z" />
+                                    <path fill="#ce2b37" d="M341.3 0H512v512H341.3z" />
+                                  </g>
+                                </svg>
+
+                                <h4 className="leading-tight text-lg sm:text-xl md:text-2xl font-semibold">
+                                  Italiano
+                                </h4>
+
+
+
+
+                              </div>
+
+
+                              <div className="flex flex-row gap-x-2">
+                                <RxAvatar className="w-6 h-6" />
+                                <p className="text-base sm:text-lg md:text-xl lg:text-md font-medium leading-7 ">
+
+                                  359,285
+                                </p>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                      )}
+
+                    </div>
+
+
+                  </div>
                 )}
               </div>
             </div>

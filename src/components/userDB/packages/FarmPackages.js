@@ -1,15 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 
-const FarmPackages = ({ title, value, description }) => {
-  const endpointUrl = 'https://btca.afribook.world/package/getPackages';
-  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mMCI6eyJ1c2VySWQiOiI3MDg3YWUzYS0yOGQ0LTQ2M2UtOWQ5ZS1mM2NlOWNmM2QyMjAiLCJmdWxsbmFtZSI6IkFsbWFqaXJpIEF3d2FsIiwic3RhdHVzIjowfSwiaWF0IjoxNjkwNDYwODM1LCJleHAiOjE2OTEwNjU2MzV9.kQ4fg-6YwL4OjkZr6S0TL_TixVd6L8991EXOkk3ndd4';
+const FarmPackages = ({ title }) => {
+  const [accessToken, setAccessToken] = useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mMCI6eyJ1c2VySWQiOiI3MDg3YWUzYS0yOGQ0LTQ2M2UtOWQ5ZS1mM2NlOWNmM2QyMjAiLCJmdWxsbmFtZSI6IkFsbWFqaXJpIEF3d2FsIiwic3RhdHVzIjowfSwiaWF0IjoxNjkwNDYwODM1LCJleHAiOjE2OTEwNjU2MzV9.kQ4fg-6YwL4OjkZr6S0TL_TixVd6L8991EXOkk3ndd4');
+
+
+  // const endpointUrl = 'https://btca.afribook.world/package/getPackages';
+  // const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mMCI6eyJ1c2VySWQiOiI3MDg3YWUzYS0yOGQ0LTQ2M2UtOWQ5ZS1mM2NlOWNmM2QyMjAiLCJmdWxsbmFtZSI6IkFsbWFqaXJpIEF3d2FsIiwic3RhdHVzIjowfSwiaWF0IjoxNjkwNDYwODM1LCJleHAiOjE2OTEwNjU2MzV9.kQ4fg-6YwL4OjkZr6S0TL_TixVd6L8991EXOkk3ndd4';
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    // Function to refresh the access token
+    const refreshAccessToken = async () => {
+      try {
+        const refreshTokenResponse = await fetch('https://btca.afribook.world/account/refreshToken', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        });
+
+        if (!refreshTokenResponse.ok) {
+          throw new Error('Token refresh failed');
+        }
+
+        const refreshedToken = await refreshTokenResponse.json();
+        const newAccessToken = refreshedToken.accessToken;
+
+        setAccessToken(newAccessToken);
+
+      } catch (error) {
+        console.error('Error refreshing token:', error);
+      }
+
+    };
+
+    // Fetch Packages items using the current access token
     const fetchData = async () => {
       try {
-        const response = await fetch(endpointUrl, {
+        const response = await fetch('https://btca.afribook.world/package/getPackages', {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
@@ -26,8 +56,10 @@ const FarmPackages = ({ title, value, description }) => {
       }
     };
 
+    // Refresh token and fetch data on component mount
+    refreshAccessToken();
     fetchData();
-  }, []);
+  }, [accessToken]);
 
   return (
     <div className="bg-[#A020F0] rounded-lg overflow-hidden py-4 px-2 text-center text-white space-y-8">

@@ -23,12 +23,18 @@ import Withdrawal from "./pages/Withdrawal";
 import Franchise from "./pages/Franchise";
 import Reseller from "./pages/Reseller";
 import Applications from "./pages/Applications";
+import Statistics from './pages/Statistics';
+import Role from './pages/Role';
 
 import AdminDashboard from "./pages/AdminDashboard";
 
 import { AuthProvider } from './utils/auth';
 import RequireAuth from './utils/RequireAuth';
-import Statistics from './pages/Statistics';
+
+import { RegistrationDataProvider } from './contexts/RegistrationDataContext'
+
+
+import Test from './pages/Test';
 
 
 
@@ -37,63 +43,68 @@ const App = () => {
     <div>
       <AuthProvider >
 
-        <Routes>
-          <Route exact path='/' element={< AboutUs />} />
-          <Route exact path='/about' element={< AboutUs />} />
-          <Route exact path='/statistics' element={< Statistics />} />
-          < Route path='/signup' element={< Signup />} />
-          < Route path='/verify_email' element={< VerifyEmail />} />
-          < Route path='/verify_OTP' element={< VerifyOTP />} />
-          < Route path='/signin' element={< Signin />} />
-          < Route path='/reset' element={< Reset />} />
-          < Route path='/recovery' element={< Recovery />} />
-          < Route path="*" element={< NotFoundPage />} />
-          < Route path="/access-denied" element={< AccessDeniedPage />} />
+        <RegistrationDataProvider>
+
+          <Routes>
+            <Route exact path='/' element={< AboutUs />} />
+            <Route exact path='/about' element={< AboutUs />} />
+            <Route exact path='/statistics' element={< Statistics />} />
+            < Route path='/signup' element={< Signup />} />
+            < Route path='/verify_email' element={< VerifyEmail />} />
+            < Route path='/verify_OTP' element={< VerifyOTP />} />
+            < Route path='/role' element={< Role />} />
+            < Route path='/signin' element={< Signin />} />
+            < Route path='/reset' element={< Reset />} />
+            < Route path='/recovery' element={< Recovery />} />
+            < Route path="*" element={< NotFoundPage />} />
+            < Route path="/access-denied" element={< AccessDeniedPage />} />
 
 
-          {/* <Route element={<HomePage />} path="/home" /> */}
-          < Route element={<RequireAuth>< AboutUs /></RequireAuth>} path="/home" />
-          < Route element={<RequireAuth>< Profile /></RequireAuth>} path="/profile" />
-          <Route element={<Dashboard />} path="/dashboard" />
-          < Route path='/activation' element={< Activation />} />
-          < Route path='/license' element={< License />} />
-          < Route path='/support' element={< Support />} />
-          < Route path='/wallet' element={< Wallet />} />
-          < Route path='/withdrawal' element={< Withdrawal />} />
-          {/* < Route path='/franchise' element={< Franchise />} /> */}
-          {/* < Route path='/reseller' element={< Reseller />} /> */}
-          < Route path='/applications' element={< Applications />} />
+            < Route element={<RequireAuth>< AboutUs /></RequireAuth>} path="/home" />
+            < Route element={<RequireAuth>< Profile /></RequireAuth>} path="/profile" />
+            <Route element={<Dashboard />} path="/dashboard" />
+            < Route path='/activation' element={< Activation />} />
+            < Route path='/license' element={< License />} />
+            < Route path='/support' element={< Support />} />
+            < Route path='/wallet' element={< Wallet />} />
+            < Route path='/withdrawal' element={< Withdrawal />} />
+            {/* < Route path='/franchise' element={< Franchise />} /> */}
+            {/* < Route path='/reseller' element={< Reseller />} /> */}
+            < Route path='/applications' element={< Applications />} />
+            < Route path='/test' element={< Test />} />
 
-          <Route
-            element={
-              <RequireAuth
-                requiredRoles={['superadmin', 'admin']}>
-                <AdminDashboard />
-              </RequireAuth>
-            }
-            path="/admin_dashboard"
-          />
-          <Route
-            element={
-              <RequireAuth
-                requiredRoles={['franchise']}>
-                <Franchise />
-              </RequireAuth>
-            }
-            path="/franchise"
-          />
-          <Route
-            element={
-              <RequireAuth
-                requiredRoles={['reseller']}>
-                <Reseller />
-              </RequireAuth>
-            }
-            path="/reseller"
-          />
+            <Route
+              element={
+                <RequireAuth
+                  requiredRoles={['superadmin', 'admin']}>
+                  <AdminDashboard />
+                </RequireAuth>
+              }
+              path="/admin_dashboard"
+            />
+            <Route
+              element={
+                <RequireAuth
+                  requiredRoles={['franchise']}>
+                  <Franchise />
+                </RequireAuth>
+              }
+              path="/franchise"
+            />
+            <Route
+              element={
+                <RequireAuth
+                  requiredRoles={['reseller']}>
+                  <Reseller />
+                </RequireAuth>
+              }
+              path="/reseller"
+            />
 
 
-        </Routes>
+          </Routes>
+
+        </RegistrationDataProvider>
 
       </AuthProvider>
 

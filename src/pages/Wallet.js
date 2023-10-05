@@ -8,47 +8,60 @@ import Footer from "../components/Footer";
 
 import { Button } from "@chakra-ui/react";
 
+import { useSelector } from "react-redux";
+import { selectRegistrationData } from '../store/registration';
+
 
 
 
 const Wallet = () => {
+
+  const registrationData = useSelector(selectRegistrationData);
+
+  const {
+    accessToken,
+  } = registrationData.data;
+
+
+
   const [activeButton, setActiveButton] = useState("wallet");
+
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
   }
 
   const [transactionData, setTransactionData] = useState([]);
-  // const [error, setError] = useState('');
 
   const handleHistoryClick = async (buttonName) => {
     setActiveButton(buttonName);
     try {
+
       const response = await fetch(`https://btca.afribook.world/transaction/getWalletTransactionHistory/0xA258dDa230F78C51F202e893EE22e4845bFee5fF`,
         {
           method: 'GET',
+
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
           },
+
         });
 
       if (response.ok) {
         const data = await response.json();
         setTransactionData(data);
-      }
-
-      else {
+      } else {
         // Handle signin error
         const errorData = await response.json();
         console.error('Error getting your history:', errorData);
         throw new Error(errorData.message);
       }
-
     } catch (error) {
       console.error('Error fetching transaction history:', error);
       // setError(error.message || 'Error fetching transaction history');
     }
-
   };
+
 
   return (
     <div

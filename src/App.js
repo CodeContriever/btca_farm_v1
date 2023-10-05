@@ -31,7 +31,9 @@ import AdminDashboard from "./pages/AdminDashboard";
 import { AuthProvider } from './utils/auth';
 import RequireAuth from './utils/RequireAuth';
 
-import { RegistrationDataProvider } from './contexts/RegistrationDataContext'
+// import { RegistrationDataProvider } from './contexts/RegistrationDataContext'
+import { Provider } from 'react-redux';
+import store from './store';
 
 
 import Test from './pages/Test';
@@ -43,7 +45,8 @@ const App = () => {
     <div>
       <AuthProvider >
 
-        <RegistrationDataProvider>
+        {/* <RegistrationDataProvider> */}
+        <Provider store={store}>
 
           <Routes>
             <Route exact path='/' element={< AboutUs />} />
@@ -104,7 +107,9 @@ const App = () => {
 
           </Routes>
 
-        </RegistrationDataProvider>
+        </Provider>
+
+        {/* </RegistrationDataProvider> */}
 
       </AuthProvider>
 

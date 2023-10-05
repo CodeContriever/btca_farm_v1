@@ -1,87 +1,72 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectRegistrationData } from '../store/registration';
 
-const Test = () => {
-  const [formData, setFormData] = useState({
-    fullname: '',
-    phoneNumber: '',
-    email: '',
-    password: '',
-    referredBy: '',
-  });
+function RegistrationDetails() {
+  // Use the useSelector hook to access the registrationData from the Redux store
+  const registrationData = useSelector(selectRegistrationData);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Define your custom headers here
-      const headers = {
-        'ngrok-skip-browser-warning': '69420',
-      };
+  // Check if registrationData is available before rendering
+  if (!registrationData) {
+    console.log("Registration Data is loading...");
+    return <div>Loading...</div>;
+  }
 
-      // Make a POST request to the provided endpoint with the headers
-      const response = await axios.post(
-        'https://0516-154-118-24-214.ngrok-free.app/',
-        formData,
-        { headers }
-      );
+  // Destructure the data object from registrationData
+  const {
+    dateCreated,
+    dateModified,
+    email,
+    fullname,
+    isAccountVerified,
+    isEmailVerified,
+    isPhoneNumberVerified,
+    phoneNumber,
+    pin,
+    referredBy,
+    referrerCode,
+    status,
+    userId,
+  } = registrationData.data;
 
-      console.log('Response:', response.data);
+  // console.log("User Registration Data:", registrationData);
 
-      // Handle successful response here, e.g., show a success message to the user
-    } catch (error) {
-      console.error('Error:', error);
 
-      // Handle error, e.g., show an error message to the user
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  // console.log("Destructured Data:", {
+  //   dateCreated,
+  //   dateModified,
+  //   email,
+  //   fullname,
+  //   isAccountVerified,
+  //   isEmailVerified,
+  //   isPhoneNumberVerified,
+  //   phoneNumber,
+  //   pin,
+  //   referredBy,
+  //   referrerCode,
+  //   status,
+  //   userId,
+  // }); // Log the destructured data
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="fullname"
-          placeholder="Full Name"
-          value={formData.fullname}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="phoneNumber"
-          placeholder="Phone Number"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="referredBy"
-          placeholder="Referred By"
-          value={formData.referredBy}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
+    <div>
+      <h2>Registration Details</h2>
+      <p>Date Created: {dateCreated}</p>
+      <p>Date Modified: {dateModified}</p>
+      <p>Email: {email}</p>
+      <p>Full Name: {fullname}</p>
+      <p>Is Account Verified: {isAccountVerified}</p>
+      <p>Is Email Verified: {isEmailVerified}</p>
+      <p>Is Phone Number Verified: {isPhoneNumberVerified}</p>
+      <p>Phone Number: {phoneNumber}</p>
+      <p>PIN: {pin}</p>
+      <p>Referred By: {referredBy}</p>
+      <p>Referrer Code: {referrerCode}</p>
+      <p>Status: {status}</p>
+      <p>User ID: {userId}</p>
+      {/* Add more HTML elements to display other properties */}
     </div>
   );
-};
+}
 
-export default Test;
+export default RegistrationDetails;

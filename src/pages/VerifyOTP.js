@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { selectRegistrationData } from '../store/registration';
 
 const VerifyOTP = () => {
   const navigate = useNavigate();
+
+  const registrationData = useSelector(selectRegistrationData);
+
+  const {
+    userId,
+  } = registrationData.data;
 
   const [formData, setFormData] = useState({
     OTP: "",
@@ -22,15 +30,21 @@ const VerifyOTP = () => {
     e.preventDefault();
 
     try {
-      // Send a POST request to verify the email
       const response = await axios.post(
         'https://btca.afribook.world/account/verifyEmail',
-        { OTP: formData.OTP }
+        {
+          OTP: formData.OTP,
+        },
+        {
+          headers: {
+            userId: userId,
+          },
+        }
       );
 
       if (response.status === 201) {
         // Email verification was successful, navigate to the home page
-        navigate('/home');
+        navigate('/role');
       } else {
         toast.error('Could not verify, please enter a registered email');
       }
